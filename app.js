@@ -1,5 +1,7 @@
 const express = require("express");
 
+require("./config/db.config");
+
 require("./config/hbs.config");
 
 const path = require("path");

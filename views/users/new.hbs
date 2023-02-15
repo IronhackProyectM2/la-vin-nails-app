@@ -1,33 +1,30 @@
-<form>
+ <h1 class="mb-3">Register</h1>
+
+<form action="/users" method="POST">
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Name</label>
-    <input
-      type="email"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-    />
-    <div id="emailHelp" class="form-text">We'll never share your email with
-      anyone else.</div>
+    <label for="name" class="form-label">Nombre</label>
+    <input type="text" name="name" class="form-control" id="name">
   </div>
+
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input
-      type="email"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-    />
-    <div id="emailHelp" class="form-text">We'll never share your email with
-      anyone else.</div>
+    <label for="surname" class="form-label">Apellido</label>
+    <input type="text" name="surname" class="form-control" id="surname">
   </div>
+
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" />
+    <label for="phone" class="form-label">Teléfono</label>
+    <input type="number" name="phone" class="form-control" id="phone">
   </div>
+
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" />
+    <label for="email" class="form-label">Email</label>
+    <input type="email" name="email" class="form-control" id="email">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Contraseña</label>
+    <input type="password" name="password" class="form-control" id="password">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Registrarse</button>
 </form>
