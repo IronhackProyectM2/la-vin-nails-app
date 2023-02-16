@@ -7,10 +7,14 @@ const users = require("../controllers/users.controller");
 const router = express.Router();
 
 router.get("/", common.home);
-router.get("/services", services.list);
+router.get("/services/list", services.list);
 
-router.get("/users/login", users.login);
+router.get("/login", users.login);
+router.post("/login", users.doLogin);
+
 router.get("/users/new", users.create);
 router.post("/users", users.doCreate);
+router.get("/users/:id/update", users.update);
+
 
 module.exports = router;

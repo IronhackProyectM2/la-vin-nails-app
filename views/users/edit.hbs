@@ -1,6 +1,6 @@
-<h1 class="mb-3">Register</h1>
+<h1 class="mb-3">Mi Perfil</h1>
 
-<form action="/users" method="POST">
+<form action="/users/{{user.id}}" method="POST">
   <div class="mb-3">
     <label for="name" class="form-label">Nombre</label>
     <input
@@ -56,5 +56,5 @@
     />
   </div>
 
-  <button type="submit" class="btn btn-primary">Registrarse</button>
+  <button type="submit" class="btn btn-primary">Guardar cambios</button>
 </form>

@@ -19,9 +19,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="/service">Servicios</a>
-        <a class="nav-link" href="#">Registro</a>
-        <a class="nav-link disabled">Login</a>
+        <a
+          class="nav-link active"
+          aria-current="page"
+          href="/services/list"
+        >Servicios</a>
+        <a class="nav-link" href="/users/new">Registro</a>
+        <a class="nav-link" href="/login">Login</a>
+        <a class="nav-link" href="/users/{{currentUser.id}}/update">Mi perfil</a>
       </div>
     </div>
   </div>
