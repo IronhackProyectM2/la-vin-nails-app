@@ -1,0 +1,13 @@
+<h1>Citas Solicitadas por cliente</h1>
+
+<hr />
+<div class="container">
+  {{#each dates as |date|}}
+    <div class="card mb-3" style="width: 14rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{date.service}}</h5>
+        <p class="card-text">{{date.desiredDesign}}</p>
+      </div>
+    </div>
+  {{/each}}
+</div>

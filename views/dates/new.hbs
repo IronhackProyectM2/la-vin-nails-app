@@ -1,0 +1,28 @@
+<h1>Completa el forulario para solicitar tu cita</h1>
+
+<form action="/dates" method="POST" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="service" class="form-label">Selecciona un servicio:</label>
+    <select id="service" name="service" class="form-control">
+      {{#each services as |service|}}
+        <option value="{{service.name}}">{{service.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="desigComents" class="form-label">Comentarios sobre el diseño</label>
+    <textarea
+      type="text area"
+      name="designComents"
+      class="form-control"
+      id="designComents"
+      cols="30"
+      rows="10"
+    >
+    </textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Solicitar cita</button>
+
+</form>

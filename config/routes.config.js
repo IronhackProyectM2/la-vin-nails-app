@@ -1,8 +1,9 @@
 const express = require("express");
 
 const common = require("../controllers/common.controller");
-const services = require("../controllers/service.controller");
+const services = require("../controllers/services.controller");
 const users = require("../controllers/users.controller");
+const dates = require("../controllers/dates.controller");
 
 const router = express.Router();
 
@@ -13,10 +14,17 @@ router.get("/", common.home);
 router.get("/services/list", services.list);
 router.get("/services/detail", services.detail);
 
+//For Date controller:
+
+router.get("/dates/new", dates.create, services.list);
+router.post("/dates", dates.doCreate);
+
 //For user controller:
+//Login:
 router.get("/login", users.login);
 router.post("/login", users.doLogin);
 
+//Register:
 router.get("/users/new", users.create);
 router.post("/users", users.doCreate);
 router.get("/users/:id/update", users.update);
