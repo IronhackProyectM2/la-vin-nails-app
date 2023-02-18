@@ -1,5 +1,14 @@
-
+const Service = require("../models/service.model");
+const mongoose = require("mongoose");
 
 module.exports.list = (req, res, next) => {
-    res.render("services/list")
-}
+  Service.find()
+    .then((services) => {
+      res.render("services/list", { services });
+    })
+    .catch(next);
+};
+
+module.exports.detail = (req, res, next) => {
+  res.render("services/detail");
+};
