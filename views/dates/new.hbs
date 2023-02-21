@@ -1,6 +1,17 @@
 <h1>Completa el forulario para solicitar tu cita</h1>
 
-<form action="/dates" method="POST" >
+<form action="/dates" method="POST" enctype="multipart/form-data">
+
+  <div class="input-group mb-3">
+    <label class="input-group-text" for="handState"><i class="fa fa-picture-o"></i></label>
+    <input type="file" name="handState" class="form-control" id="handState">
+  </div>
+
+  {{!-- <div class="input-group mb-3">
+    <label class="input-group-text" for="desiredDesign"><i class="fa fa-picture-o"></i></label>
+    <input type="file" name="desiredDesign" class="form-control" id="desiredDesign">
+  </div> --}}
+
   <div class="mb-3">
     <label for="service" class="form-label">Selecciona un servicio:</label>
     <select id="service" name="service" class="form-control">
@@ -14,6 +25,7 @@
     <label for="designDetails" class="form-label">Comentanos los detalles sobre el diseño</label>
     <textarea name="designDetails" class="form-control" id="designDetails">{{service.name}}</textarea>
   </div>
+  
 
   <div class="mb-3">
     <label for="requestedDate" class="form-label">¿Que días y horas tienes disponibles?</label>

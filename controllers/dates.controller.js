@@ -12,7 +12,10 @@ module.exports.create = (req, res, next) => {
 };
 
 module.exports.doCreate = (req, res, next) => {
-  console.log(req.body)
+  if (req.file) {
+    req.body.handState = req.file.path;
+  }
+  req.body.user = req.user.id;
   Date.create(req.body)
     .then(() => {
       res.redirect("/");

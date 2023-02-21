@@ -4,6 +4,8 @@ const common = require("../controllers/common.controller");
 const services = require("../controllers/services.controller");
 const users = require("../controllers/users.controller");
 const dates = require("../controllers/dates.controller");
+const multer = require("../config/multer.config");
+
 
 const router = express.Router();
 
@@ -27,7 +29,7 @@ router.get("/services/detail", services.detail);
 //For Date controller:
 
 router.get("/dates/new", dates.create, services.list);
-router.post("/dates", dates.doCreate);
+router.post("/dates", multer.single('handState'), /*multer.single('desiredDesign'), */ dates.doCreate);
 router.get("/dates/list", dates.list);
 
 module.exports = router;

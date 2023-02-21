@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const dateSchema = new mongoose.Schema(
   {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+    },
     service: {
       type: String,
       required: [true, "Seleccione un servicio"],
@@ -10,11 +14,9 @@ const dateSchema = new mongoose.Schema(
       type: String,
       //required: [true, "Seleccione un tipo de servicio"],
     },
-    leftHandState: {
+    handState: {
       type: String,
-    },
-    rigthHandState: {
-      type: String,
+      required: [true, "Necesitamos una foto para conocer tus manos"],
     },
     desiredDesign: {
       type: String,
@@ -22,7 +24,7 @@ const dateSchema = new mongoose.Schema(
     designDetails: {
       type: String,
       required: [true, "Son necesarios los detalles"],
-      maxLength: [200, "max 200 chars."]
+      maxLength: [300, "max 300 chars."]
     },
     requestedDate: {
       type: String,
@@ -34,6 +36,14 @@ const dateSchema = new mongoose.Schema(
     hour: {
       type: String,
     },
+    price: {
+      type: Number,
+    },
+    dateState: {
+      type: String,
+      enum: ["Sin confirmar", "Confirmada"],
+      default: "Sin confirmar"
+    }
   },
  { timestamps: true }
 );
