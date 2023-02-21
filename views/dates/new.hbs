@@ -1,6 +1,6 @@
 <h1>Completa el forulario para solicitar tu cita</h1>
 
-<form action="/dates" method="POST" enctype="multipart/form-data">
+<form action="/dates" method="POST" >
   <div class="mb-3">
     <label for="service" class="form-label">Selecciona un servicio:</label>
     <select id="service" name="service" class="form-control">
@@ -11,16 +11,13 @@
   </div>
 
   <div class="mb-3">
-    <label for="desigComents" class="form-label">Comentarios sobre el diseño</label>
-    <textarea
-      type="text area"
-      name="designComents"
-      class="form-control"
-      id="designComents"
-      cols="30"
-      rows="10"
-    >
-    </textarea>
+    <label for="designDetails" class="form-label">Comentanos los detalles sobre el diseño</label>
+    <textarea name="designDetails" class="form-control" id="designDetails">{{service.name}}</textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="requestedDate" class="form-label">¿Que días y horas tienes disponibles?</label>
+    <textarea name="requestedDate" class="form-control" id="requestedDate"></textarea>
   </div>
 
   <button type="submit" class="btn btn-primary">Solicitar cita</button>

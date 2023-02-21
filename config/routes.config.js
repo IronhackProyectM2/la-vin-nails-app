@@ -10,15 +10,6 @@ const router = express.Router();
 //FOR Common controller:
 router.get("/", common.home);
 
-//FOR Service controller:
-router.get("/services/list", services.list);
-router.get("/services/detail", services.detail);
-
-//For Date controller:
-
-router.get("/dates/new", dates.create, services.list);
-router.post("/dates", dates.doCreate);
-
 //For user controller:
 //Login:
 router.get("/login", users.login);
@@ -28,5 +19,15 @@ router.post("/login", users.doLogin);
 router.get("/users/new", users.create);
 router.post("/users", users.doCreate);
 router.get("/users/:id/update", users.update);
+
+//FOR Service controller:
+router.get("/services/list", services.list);
+router.get("/services/detail", services.detail);
+
+//For Date controller:
+
+router.get("/dates/new", dates.create, services.list);
+router.post("/dates", dates.doCreate);
+router.get("/dates/list", dates.list);
 
 module.exports = router;
