@@ -29,7 +29,7 @@ router.get("/services/detail", services.detail);
 //For Date controller:
 
 router.get("/dates/new", dates.create, services.list);
-router.post("/dates", multer.single('handState'), /*multer.single('desiredDesign'), */ dates.doCreate);
+router.post("/dates", multer.fields([{ name: 'handState', maxCount: 1 }, { name: 'desiredDesign', maxCount: 1 }]), dates.doCreate);
 router.get("/dates/list", dates.list);
 
 module.exports = router;

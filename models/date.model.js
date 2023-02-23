@@ -4,7 +4,7 @@ const dateSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
     },
     service: {
       type: String,
@@ -16,25 +16,29 @@ const dateSchema = new mongoose.Schema(
     },
     handState: {
       type: String,
-      required: [true, "Necesitamos una foto para conocer tus manos"],
+      // required: [true, "Necesitamos una foto para conocer tus manos"],
     },
     desiredDesign: {
       type: String,
     },
     designDetails: {
       type: String,
-      required: [true, "Son necesarios los detalles"],
-      maxLength: [300, "max 300 chars."]
+      // required: [true, "Son necesarios los detalles"],
+      maxLength: [300, "max 300 chars."],
     },
     requestedDate: {
       type: String,
-      maxLength: [200, "max 200 chars."]
+      maxLength: [200, "max 200 chars."],
     },
     date: {
       type: String,
+      // required: [true, "Es necesario seleccionar un día"],
     },
-    hour: {
-      type: String,
+    turn: {
+      type: "Number",
+      min: 1,
+      max: 8,
+      required: [true, "Es necesario seleccionar una hora"],
     },
     price: {
       type: Number,
@@ -42,11 +46,13 @@ const dateSchema = new mongoose.Schema(
     dateState: {
       type: String,
       enum: ["Sin confirmar", "Confirmada"],
-      default: "Sin confirmar"
-    }
+      default: "Sin confirmar",
+    },
   },
- { timestamps: true }
+  { timestamps: true }
 );
+
+dateSchema.index({ date: 1, turn: 1 }, { unique: true });
 
 const Date = mongoose.model("Date", dateSchema);
 
