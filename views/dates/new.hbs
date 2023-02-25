@@ -1,6 +1,6 @@
 <h1>Completa el forulario para solicitar tu cita</h1>
 
-<form action="/dates" method="POST" enctype="multipart/form-data" name="cita">
+<form action="/dates/{{service.id}}/new" method="POST" enctype="multipart/form-data" name="cita">
 
   <div class="input-group mb-3">
     <label class="input-group-text" for="handState"><i class="fa fa-picture-o"></i></label>
@@ -12,21 +12,30 @@
     <input type="file" name="desiredDesign" class="form-control" id="desiredDesign"/>
   </div>
 
+  {{!-- <div>
+    <label for="service">Servicio:</label>
+    <input type="text" id="service" name="service" value="{{service.id}}" readonly>
+  </div> --}}
+
+
   <div class="mb-3">
-    <label for="service" class="form-label">Selecciona un servicio:</label>
-    <select id="service" name="service" class="form-control">
-      {{#each services as |service|}}
-        <option value="{{service.name}}">{{service.name}}</option>
+    <h5>Seleccionaste {{service.name}}</h5>
+    <label for="type" class="form-label">Selecciona un tipo de terminación</label>
+    <select id="type" name="type" class="form-control">
+      {{#each service.type as |type|}}
+        <option id="{{type}}" value="{{type}}">{{type}}</option>
       {{/each}}
     </select>
   </div>
+
+
 
   <div class="mb-3">
     <label for="designDetails" class="form-label">Comentanos los detalles sobre el diseño</label>
     <textarea
       name="designDetails"
       class="form-control"
-      id="designDetails"
+      type="designDetails"
     ></textarea>
   </div>
 
@@ -61,5 +70,12 @@
   </div> }}
 
   <button type="submit" class="btn btn-primary">Solicitar cita</button>
-
+  <a href="/services/list" class="btn btn-primary">Volver atrás</a>
 </form>
+
+<script>
+  const dateInput = document.getElementById('date');
+  const currentDate = new Date().toISOString().split('T')[0];
+  dateInput.min = currentDate;
+</script>
+

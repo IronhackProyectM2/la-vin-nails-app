@@ -3,9 +3,9 @@ const Service = require("../models/service.model");
 const mongoose = require("mongoose");
 
 module.exports.create = (req, res, next) => {
-  Service.find()
-    .then((services) => {
-      res.render("dates/new", { services });
+   Service.findById(req.params.id)
+    .then((service) => {
+      res.render("dates/new", { service });
     })
     .catch(next);
 };
@@ -16,6 +16,7 @@ module.exports.doCreate = (req, res, next) => {
     req.body.desiredDesign = req.files["desiredDesign"][0].path;
   }
   req.body.user = req.user.id;
+  req.body.service = req.params.id
   Date.create(req.body)
     .then(() => {
       res.redirect("/");
@@ -24,7 +25,11 @@ module.exports.doCreate = (req, res, next) => {
 };
 
 module.exports.list = (req, res, next) => {
+  
   Date.find()
+    .populate('user')
+    .populate('service')
+    .sort({ createdAt: req.query.sort || "desc" })
     .then((dates) => {
       res.render("dates/list", { dates });
     })

@@ -7,7 +7,8 @@ const dateSchema = new mongoose.Schema(
       ref: "User",
     },
     service: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref:"Service",
       required: [true, "Seleccione un servicio"],
     },
     tipo: {
