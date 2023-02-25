@@ -74,6 +74,25 @@
 </form>
 
 <script>
+  const dates = {{{dates}}}
+  const selectedDate = document.getElementById("date")
+  selectedDate.addEventListener('change', function(event){
+    const selected = event.target.value
+    const dayDates = dates.filter(x => x.date === selected)
+
+    document.querySelector("option").forEach(x => {
+      x.removeAttribute("disabled")
+    })
+
+    dayDates.forEach(date => {
+      document.querySelector(`option[value='${date.turn}']`).setAttribute("disabled", true)
+    })
+  })
+</script>
+
+
+
+<script>
   const dateInput = document.getElementById('date');
   const currentDate = new Date().toISOString().split('T')[0];
   dateInput.min = currentDate;

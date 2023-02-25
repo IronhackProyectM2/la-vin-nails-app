@@ -9,6 +9,3 @@ module.exports.list = (req, res, next) => {
     .catch(next);
 };
 
-module.exports.detail = (req, res, next) => {
-  res.render("services/detail");
-};

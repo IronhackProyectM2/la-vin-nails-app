@@ -5,6 +5,7 @@ const services = require("../controllers/services.controller");
 const users = require("../controllers/users.controller");
 const dates = require("../controllers/dates.controller");
 const multer = require("../config/multer.config");
+const secure = require("../middlewares/secure.mid")
 
 
 const router = express.Router();
@@ -24,12 +25,11 @@ router.get("/users/:id/update", users.update);
 
 //FOR Service controller:
 router.get("/services/list", services.list);
-router.get("/services/detail", services.detail);
 
 //For Date controller:
 
-router.get("/dates/:id/new", dates.create, services.list);
+router.get("/services/:id/schedule", secure.isAuthenticated, dates.create, services.list);
 router.post("/dates/:id/new", multer.fields([{ name: 'handState', maxCount: 1 }, { name: 'desiredDesign', maxCount: 1 }]), dates.doCreate);
-router.get("/dates/list", dates.list);
+router.get("/dates/list", secure.checkRole("admin"), dates.list);
 
 module.exports = router;

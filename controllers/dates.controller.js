@@ -5,7 +5,10 @@ const mongoose = require("mongoose");
 module.exports.create = (req, res, next) => {
    Service.findById(req.params.id)
     .then((service) => {
-      res.render("dates/new", { service });
+      Date.find()
+        .then(dates => {
+          res.render("dates/new", { service, dates: JSON.stringify(dates) });
+        })      
     })
     .catch(next);
 };
@@ -25,7 +28,6 @@ module.exports.doCreate = (req, res, next) => {
 };
 
 module.exports.list = (req, res, next) => {
-  
   Date.find()
     .populate('user')
     .populate('service')
