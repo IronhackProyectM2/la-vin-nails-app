@@ -25,11 +25,7 @@ const dateSchema = new mongoose.Schema(
       type: String,
       // required: [true, "Son necesarios los detalles"],
       maxLength: [300, "max 300 chars."],
-    },
-    requestedDate: {
-      type: String,
-      maxLength: [200, "max 200 chars."],
-    },
+    },    
     date: {
       type: String,
       // required: [true, "Es necesario seleccionar un día"],
@@ -45,8 +41,8 @@ const dateSchema = new mongoose.Schema(
     },
     dateState: {
       type: String,
-      enum: ["Sin confirmar", "Confirmada"],
-      default: "Sin confirmar",
+      enum: ["Pendiente", "Confirmada", "Rechazada"],
+      default: "Pendiente",
     },
   },
   { timestamps: true }

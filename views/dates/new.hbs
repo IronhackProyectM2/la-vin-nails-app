@@ -3,22 +3,13 @@
 <form action="/dates" method="POST" enctype="multipart/form-data" name="cita">
 
   <div class="input-group mb-3">
-    <label class="input-group-text" for="handState"><i
-        class="fa fa-picture-o"
-      ></i></label>
+    <label class="input-group-text" for="handState"><i class="fa fa-picture-o"></i></label>
     <input type="file" name="handState" class="form-control" id="handState" />
   </div>
 
   <div class="input-group mb-3">
-    <label class="input-group-text" for="desiredDesign"><i
-        class="fa fa-picture-o"
-      ></i></label>
-    <input
-      type="file"
-      name="desiredDesign"
-      class="form-control"
-      id="desiredDesign"
-    />
+    <label class="input-group-text" for="desiredDesign"><i class="fa fa-picture-o"></i></label>
+    <input type="file" name="desiredDesign" class="form-control" id="desiredDesign"/>
   </div>
 
   <div class="mb-3">
@@ -31,21 +22,19 @@
   </div>
 
   <div class="mb-3">
-    <label for="designDetails" class="form-label">Comentanos los detalles sobre
-      el diseño</label>
+    <label for="designDetails" class="form-label">Comentanos los detalles sobre el diseño</label>
     <textarea
       name="designDetails"
       class="form-control"
       id="designDetails"
-    >{{service.name}}</textarea>
+    ></textarea>
   </div>
 
   <div class="mb-3">
     <label for="date" class="form-label">Día</label>
     <input type="date" name="date" class="form-control" id="date" />
   </div>
-  <h1>{{date.date}}</h1>
-
+  
   <div class="mb-3">
     <label for="turn" class="form-label">Selecciona turno</label>
     <select id="turn" name="turn" class="form-control">

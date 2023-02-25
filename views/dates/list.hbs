@@ -5,10 +5,29 @@
   {{#each dates as |date|}}
     <div class="card mb-3" style="width: 14rem;">
       <div class="card-body">
-        <h5 class="card-title">{{date.service}}</h5>
-        <p class="card-text">{{date.designDetails}}</p>
-        <p class="card-text">{{date.date}}</p>
-        <p class="card-text">{{date.hour}}</p>
+        <h6>Cliente:</h6>
+        <p class="card-text">{{date.user}}</p>        
+        <h5 class="card-title mb-3">{{date.service}}</h5>
+        <p>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#{{date.id}}" aria-expanded="false" aria-controls="collapseExample">
+          Detalles
+          </button>
+        </p>
+        <div class="collapse" id="{{date.id}}">
+          <div class="card card-body">
+            <h6>Estado de manos:</h6>
+            <img src="{{date.handState}}" class="card-img-top mb-3" alt="..." />
+            <h6>Diseño deseado:</h6>
+            <img src="{{date.desiredDesign}}" class="card-img-top mb-3" alt="..." />
+            <h6>Detalles de diseño: </h6>
+            <p class="card-text">{{date.designDetails}}</p>             
+          </div>
+        </div>             
+        <p class="card-text">Fecha: {{date.date}}</p>
+        <p class="card-text">Turno: {{date.turn}}</p>
+        <h6>Estado de la solicitud</h6>
+        <p class="card-text">{{date.dateState}}</p>
+        <button type="button" class="btn btn-success">Confirmar cita</button>
       </div>
     </div>
   {{/each}}
