@@ -38,4 +38,35 @@ module.exports.list = (req, res, next) => {
     .catch(next);
 };
 
+module.exports.listPending = (req, res, next) => {
+  Date.find({dateState: "Pendiente"})
+    .populate('user')
+    .populate('service')
+    .sort({ createdAt: req.query.sort || "desc" })
+    .then((dates) => {
+      res.render("dates/list", { dates });
+    })
+    .catch(next);
+};
+
+module.exports.listConfirmed = (req, res, next) => {
+  Date.find({dateState: "Confirmada"})
+    .populate('user')
+    .populate('service')
+    .sort({ createdAt: req.query.sort || "desc" })
+    .then((dates) => {
+      res.render("dates/list", { dates });
+    })
+    .catch(next);
+};
+
+module.exports.confirmation = (req, res, next) => {
+  req.body.dateState = "Confirmada"
+  Date.findByIdAndUpdate(req.params.id, req.body)
+    .then((date) => {
+      res.redirect("/dates/list/pending")
+    })
+    .catch()
+};
+
 // req.body.service, req.body.designComments

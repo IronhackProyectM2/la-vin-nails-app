@@ -31,5 +31,12 @@ router.get("/services/list", services.list);
 router.get("/services/:id/schedule", secure.isAuthenticated, dates.create, services.list);
 router.post("/dates/:id/new", multer.fields([{ name: 'handState', maxCount: 1 }, { name: 'desiredDesign', maxCount: 1 }]), dates.doCreate);
 router.get("/dates/list", secure.checkRole("admin"), dates.list);
+router.get("/dates/list/pending", secure.checkRole("admin"), dates.listPending);
+router.get("/dates/list/confirmed", secure.checkRole("admin"), dates.listConfirmed);
+
+router.get("/dates/:id/confirmation", secure.checkRole("admin"), dates.confirmation);
+
+
+
 
 module.exports = router;
