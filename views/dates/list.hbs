@@ -30,7 +30,9 @@
         <p class="card-text">Fecha: {{date.date}}</p>
         <p class="card-text">Turno: {{date.turn}}</p>
         <h6>Solicitud {{date.dateState}}</h6>
-        <a href="/dates/{{date.id}}/confirmation" class="btn btn-success">Confirmar cita</a>        
+        {{#isPending date }}
+        <a href="/dates/{{date.id}}/confirmation" class="btn btn-success">Confirmar cita</a>
+        {{/isPending}}        
       </div>
     </div>
   {{/each}}
