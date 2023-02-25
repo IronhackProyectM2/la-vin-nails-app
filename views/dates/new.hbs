@@ -47,27 +47,16 @@
   <div class="mb-3">
     <label for="turn" class="form-label">Selecciona turno</label>
     <select id="turn" name="turn" class="form-control">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      {{! Falta meter las horas }}
+      <option value="1">10 a 11 hs.</option>
+      <option value="2">11 a 12 hs.</option>
+      <option value="3">12 a 13 hs.</option>
+      <option value="4">16 a 17 hs.</option>
+      <option value="5">17 a 18 hs.</option>
+      <option value="6">18 a 19 hs.</option>
+      <option value="7">19 a 20 hs.</option>
+      <option value="8">20 a 21 hs.</option>
     </select>
   </div>
-
-  {{! <div class="mb-3">
-    <label for="requestedDate" class="form-label">¿Que días y horas tienes
-      disponibles?</label>
-    <textarea
-      name="requestedDate"
-      class="form-control"
-      id="requestedDate"
-    ></textarea>
-  </div> }}
 
   <button type="submit" class="btn btn-primary">Solicitar cita</button>
   <a href="/services/list" class="btn btn-primary">Volver atrás</a>
@@ -79,12 +68,11 @@
   selectedDate.addEventListener('change', function(event){
     const selected = event.target.value
     const dayDates = dates.filter(x => x.date === selected)
-
-    document.querySelector("option").forEach(x => {
-      x.removeAttribute("disabled")
-    })
-
+    
     dayDates.forEach(date => {
+      document.querySelectorAll(`option`).forEach( x => {
+      x.removeAttribute("disabled")
+      })
       document.querySelector(`option[value='${date.turn}']`).setAttribute("disabled", true)
     })
   })

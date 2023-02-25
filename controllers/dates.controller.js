@@ -19,7 +19,7 @@ module.exports.doCreate = (req, res, next) => {
     req.body.desiredDesign = req.files["desiredDesign"][0].path;
   }
   req.body.user = req.user.id;
-  req.body.service = req.params.id
+  req.body.service = req.params.id;
   Date.create(req.body)
     .then(() => {
       res.redirect("/");
