@@ -52,12 +52,13 @@ module.exports.listConfirmed = (req, res, next) => {
   Date.find({ dateState: "Confirmada" })
     .populate("user")
     .populate("service")
-    .sort({ createdAt: req.query.sort || "desc" })
+    .sort({ createdAt: req.query.sort || "asc" })
     .then((dates) => {
       res.render("dates/list", { dates });
     })
     .catch(next);
 };
+//deberíamos filtrar por fecha y por turno
 
 module.exports.confirmation = (req, res, next) => {
   req.body.dateState = "Confirmada";

@@ -33,6 +33,7 @@ hbs.registerHelper("isAuthenticated", (user, options) => {
     return options.inverse();
   }
 });
+
 hbs.registerHelper("isNotAuthenticated", (user, options) => {
   if (!user?.id) {
     return options.fn();
@@ -40,3 +41,24 @@ hbs.registerHelper("isNotAuthenticated", (user, options) => {
     return options.inverse();
   }
 });
+
+// hbs.registerHelper("isApoimentToday", (date, options) => {
+//   const todayDate = new Date().toISOString().split("T")[0]; // fecha actual pasada a formato de nuestro modelo
+
+//   if (todayDate === date.date) {
+//     return options.fn();
+//     } else {
+//       return options.inverse();
+//   }
+
+// });
+
+// hbs.registerHelper("isApoimentTomorrow", (date, options) => {
+//   const tomorrow = new Date(today.getTime() + i * 24 * 60 * 60 * 1000);// i = a cada día desde hoy siendo tomorrow 1 así en adelante
+//   const tomorrowDate = tomorrow.toISOString().split("T")[0]; //da la fecha de mañana en formato de nuestra base de datos
+//    if ((tomorrowDate === date.date)) {
+//      return options.fn();
+//    } else {
+//      return options.inverse();
+//    }
+// });
