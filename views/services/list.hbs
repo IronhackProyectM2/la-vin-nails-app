@@ -1,14 +1,17 @@
 <h1>Servicios disponibles</h1>
 
 <hr />
-<div class="container">
+<div class="card-container">
   {{#each services as |service|}}
     <div class="card mb-3" style="width: 14rem;">
       <img src="{{service.image}}" class="card-img-top" alt="..." />
       <div class="card-body">
         <h5 class="card-title">{{service.name}}</h5>
         <p class="card-text">{{service.description}}</p>
-        <a href="/services/{{service.id}}/schedule" class="btn btn-primary">Solicitar cita</a>
+        <a
+          href="/services/{{service.id}}/schedule"
+          class="btn btn-primary"
+        >Solicitar cita</a>
       </div>
     </div>
   {{/each}}

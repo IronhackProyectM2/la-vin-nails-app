@@ -1,11 +1,33 @@
-.container {
+.card-container {
   display: flex;
   align-items: center;
   flex-direction: column;
   padding-top: 2rem;
 }
 
+/* .card {
+  width: 0px;
+  flex-grow: 1;
+  object-fit: cover;
+  opacity: 0.6;
+  transition: 1s ease;
+}
+
+.card-container .card:hover {
+  cursor: crosshair;
+  width: 300px;
+  opacity: 1;
+  filter: contrast(120%);
+} */
+
+nav {
+  background-color: #b4fcb4b5;
+}
+
 footer {
-  border-top-left-radius: 50% 50%;
-  border-top-right-radius: 50% 50%;
+  height: 200px;
+  font-weight: bold;
+  border-top-left-radius: 15% 35%;
+  border-top-right-radius: 15% 35%;
+  background-color: #fcd0b4;
 }
