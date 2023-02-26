@@ -8,7 +8,7 @@ hbs.registerHelper("isAdmin", (currentUser, options) => {
   } else {
     return options.inverse();
   }
-})
+});
 
 hbs.registerHelper("isConfirmed", (date, options) => {
   if (date.dateState === "Confirmada") {
@@ -16,7 +16,7 @@ hbs.registerHelper("isConfirmed", (date, options) => {
   } else {
     return options.inverse();
   }
-})
+});
 
 hbs.registerHelper("isPending", (date, options) => {
   if (date.dateState === "Pendiente") {
@@ -24,4 +24,19 @@ hbs.registerHelper("isPending", (date, options) => {
   } else {
     return options.inverse();
   }
-})
+});
+
+hbs.registerHelper("isAuthenticated", (user, options) => {
+  if (user?.id) {
+    return options.fn();
+  } else {
+    return options.inverse();
+  }
+});
+hbs.registerHelper("isNotAuthenticated", (user, options) => {
+  if (!user?.id) {
+    return options.fn();
+  } else {
+    return options.inverse();
+  }
+});

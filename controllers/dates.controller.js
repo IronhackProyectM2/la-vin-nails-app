@@ -3,12 +3,11 @@ const Service = require("../models/service.model");
 const mongoose = require("mongoose");
 
 module.exports.create = (req, res, next) => {
-   Service.findById(req.params.id)
+  Service.findById(req.params.id)
     .then((service) => {
-      Date.find()
-        .then(dates => {
-          res.render("dates/new", { service, dates: JSON.stringify(dates) });
-        })      
+      Date.find().then((dates) => {
+        res.render("dates/new", { service, dates: JSON.stringify(dates) });
+      });
     })
     .catch(next);
 };
@@ -29,8 +28,8 @@ module.exports.doCreate = (req, res, next) => {
 
 module.exports.list = (req, res, next) => {
   Date.find()
-    .populate('user')
-    .populate('service')
+    .populate("user")
+    .populate("service")
     .sort({ createdAt: req.query.sort || "desc" })
     .then((dates) => {
       res.render("dates/list", { dates });
@@ -39,9 +38,9 @@ module.exports.list = (req, res, next) => {
 };
 
 module.exports.listPending = (req, res, next) => {
-  Date.find({dateState: "Pendiente"})
-    .populate('user')
-    .populate('service')
+  Date.find({ dateState: "Pendiente" })
+    .populate("user")
+    .populate("service")
     .sort({ createdAt: req.query.sort || "desc" })
     .then((dates) => {
       res.render("dates/list", { dates });
@@ -50,9 +49,9 @@ module.exports.listPending = (req, res, next) => {
 };
 
 module.exports.listConfirmed = (req, res, next) => {
-  Date.find({dateState: "Confirmada"})
-    .populate('user')
-    .populate('service')
+  Date.find({ dateState: "Confirmada" })
+    .populate("user")
+    .populate("service")
     .sort({ createdAt: req.query.sort || "desc" })
     .then((dates) => {
       res.render("dates/list", { dates });
@@ -61,12 +60,12 @@ module.exports.listConfirmed = (req, res, next) => {
 };
 
 module.exports.confirmation = (req, res, next) => {
-  req.body.dateState = "Confirmada"
+  req.body.dateState = "Confirmada";
   Date.findByIdAndUpdate(req.params.id, req.body)
     .then((date) => {
-      res.redirect("/dates/list/pending")
+      res.redirect("/dates/list/pending");
     })
-    .catch()
+    .catch();
 };
 
 // req.body.service, req.body.designComments

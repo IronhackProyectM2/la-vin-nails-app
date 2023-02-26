@@ -4,3 +4,8 @@
   flex-direction: column;
   padding-top: 2rem;
 }
+
+footer {
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+}

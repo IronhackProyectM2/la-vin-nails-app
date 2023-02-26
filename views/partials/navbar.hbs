@@ -1,31 +1,37 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
-  
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top bg-pink">
+
   <div class="container-fluid">
     <div class="col col-lg-2">
       <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>      
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
     <div class="col-md-auto">
       <a class="navbar-brand center" href="/"><img
-        src="/images/la-vin-nails-logo.png"
-        alt="logo la vin nails"
-        height="30"
-    /></a>
+          src="/images/la-vin-nails-logo.png"
+          alt="logo la vin nails"
+          height="30"
+        /></a>
     </div>
     <div class="col col-lg-2 text-end me-2">
-      <a class="nav-link" href="/login">Login</a>
+      <a class="nav-link" href="/users/{{currentUser.id}}/update">
+        {{#isAuthenticated user}}
+          <i class="fas fa-user text-secondary"></i>
+        {{/isAuthenticated}}
+        {{#isNotAuthenticated user}}
+          <i class="fas fa-user text-primary"></i>
+        {{/isNotAuthenticated}}
+      </a>
     </div>
-    
-    
+
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a
@@ -34,12 +40,12 @@
           href="/services/list"
         >Servicios</a>
         <a class="nav-link" href="/users/new">Registro</a>
-                <a class="nav-link" href="/users/{{currentUser.id}}/update">Mi perfil</a>
-        {{#isAdmin currentUser }}
-        <a class="nav-link" href="/dates/list/pending">Citas solicitadas</a>
+        <a class="nav-link" href="/users/{{currentUser.id}}/update">Mi perfil</a>
+        {{#isAdmin currentUser}}
+          <a class="nav-link" href="/dates/list/pending">Citas solicitadas</a>
         {{/isAdmin}}
       </div>
-    </div>    
+    </div>
   </div>
-  
+
 </nav>
