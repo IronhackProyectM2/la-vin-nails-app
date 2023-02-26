@@ -5,12 +5,12 @@
   <a href="/dates/list/confirmed" class="btn btn-primary">Confirmadas</a>
 </div>
 
-<div class="container">
+<div class="container ">
   {{#each dates as |date|}}
     <div class="card mb-3" style="width: 14rem;">
       <div class="card-body">
         <h6>Cliente:</h6>
-        <p class="card-text">{{date.user.name}}</p>        
+        <p class="card-text inline">{{date.user.name}} {{date.user.surname}}</p>        
         <h5 class="card-title mb-3">{{date.service.name}}</h5>
         <p>
           <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#{{date.id}}" aria-expanded="false" aria-controls="collapseExample">
@@ -29,6 +29,7 @@
         </div>             
         <p class="card-text">Fecha: {{date.date}}</p>
         <p class="card-text">Turno: {{date.turn}}</p>
+        <a href="/dates/{{date.id}}/update" class="btn btn-secondary mb-3">Editar</a>
         <h6>Solicitud {{date.dateState}}</h6>
         {{#isPending date }}
         <a href="/dates/{{date.id}}/confirmation" class="btn btn-success">Confirmar cita</a>

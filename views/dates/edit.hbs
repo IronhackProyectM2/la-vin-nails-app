@@ -1,22 +1,12 @@
-<h1>Completa el forulario para solicitar tu cita</h1>
+<h1>Editar Cita</h1>
 
 <form action="/dates/{{service.id}}/new" method="POST" enctype="multipart/form-data" name="cita">
 
-  <div class="input-group mb-3">
-    <label class="input-group-text" for="handState"><i class="fa fa-picture-o"></i></label>
-    <input type="file" name="handState" class="form-control" id="handState" />
-  </div>
-
-  <div class="input-group mb-3">
-    <label class="input-group-text" for="desiredDesign"><i class="fa fa-picture-o"></i></label>
-    <input type="file" name="desiredDesign" class="form-control" id="desiredDesign"/>
-  </div>
-
   <div class="mb-3">
-    <h5>Seleccionaste {{service.name}}</h5>
+    <h5>Servicio {{date.service.name}}</h5>
     <label for="type" class="form-label">Selecciona un tipo de terminación</label>
     <select id="type" name="type" class="form-control">
-      {{#each service.type as |type|}}
+      {{#each date.service.type as |type|}}
         <option id="{{type}}" value="{{type}}">{{type}}</option>
       {{/each}}
     </select>
@@ -52,8 +42,8 @@
     </select>
   </div>
 
-  <button type="submit" class="btn btn-primary">Solicitar cita</button>
-  <a href="/services/list" class="btn btn-primary">Volver atrás</a>
+  <button type="submit" class="btn btn-primary">Confirmar cambios</button>
+  <a href="/dates/list/pending" class="btn btn-primary">Volver atrás</a>
 </form>
 
 <script>
@@ -79,4 +69,3 @@
   const currentDate = new Date().toISOString().split('T')[0];
   dateInput.min = currentDate;
 </script>
-

@@ -68,4 +68,19 @@ module.exports.confirmation = (req, res, next) => {
     .catch();
 };
 
+module.exports.update = (req, res, next) => {
+  Date.findById(req.params.id)
+    .populate("user")
+    .populate("service")
+    .then((date) => {
+      Date.find().then((dates) => {
+        res.render("dates/edit", { date, dates: JSON.stringify(dates) });
+      });
+      
+    })
+    .catch(next);
+};
+
+
+
 // req.body.service, req.body.designComments

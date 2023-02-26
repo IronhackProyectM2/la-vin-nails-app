@@ -35,6 +35,7 @@ router.get("/dates/list/pending", secure.checkRole("admin"), dates.listPending);
 router.get("/dates/list/confirmed", secure.checkRole("admin"), dates.listConfirmed);
 
 router.get("/dates/:id/confirmation", secure.checkRole("admin"), dates.confirmation);
+router.get("/dates/:id/update", dates.update);
 
 
 
