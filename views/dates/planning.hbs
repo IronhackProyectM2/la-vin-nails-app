@@ -1,0 +1,57 @@
+<h1>Citas Solicitadas</h1>
+
+<div class="btn-group">
+  <a href="/dates/list/confirmed" class="btn btn-primary">Volver atrás</a>
+</div>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th></th>
+      <th class="text-center">Turno 1</th>
+      <th class="text-center">Turno 2</th>
+      <th class="text-center">Turno 3</th>
+      <th class="text-center">Turno 4</th>
+      <th class="text-center">Turno 5</th>
+      <th class="text-center">Turno 6</th>
+      <th class="text-center">Turno 7</th>
+      <th class="text-center">Turno 8</th>
+    </tr>
+  </thead>
+  </table>
+ 
+  
+    {{#each dates as |date|}}
+    {{#isApoimentToday date}}
+      <tr class="rotate-90">{{date.date}}
+      <td>
+        <div class="card mb-6">
+          <div class="card-body">
+            <h5 class="card-title mb-3">{{date.service.name}}</h5>
+            <p>
+              <button
+                class="btn btn-primary"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#{{date.id}}"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
+                Detalles
+              </button>
+            </p>
+            <h6>Solicitud {{date.dateState}}</h6>
+            {{!-- {{#isPending date}}
+              <a
+                href="/dates/{{date.id}}/confirmation"
+                class="btn btn-success"
+              >Confirmar cita</a>
+            {{/isPending}}
+         --}}
+      </td>
+      </tr>
+
+     {{/isApoimentToday}}
+    {{/each}}
+    
+ 

@@ -5,8 +5,7 @@ const services = require("../controllers/services.controller");
 const users = require("../controllers/users.controller");
 const dates = require("../controllers/dates.controller");
 const multer = require("../config/multer.config");
-const secure = require("../middlewares/secure.mid")
-
+const secure = require("../middlewares/secure.mid");
 
 const router = express.Router();
 
@@ -28,16 +27,37 @@ router.get("/services/list", services.list);
 
 //For Date controller:
 
-router.get("/services/:id/schedule", secure.isAuthenticated, dates.create, services.list);
-router.post("/dates/:id/new", multer.fields([{ name: 'handState', maxCount: 1 }, { name: 'desiredDesign', maxCount: 1 }]), dates.doCreate);
+router.get(
+  "/services/:id/schedule",
+  secure.isAuthenticated,
+  dates.create,
+  services.list
+);
+router.post(
+  "/dates/:id/new",
+  multer.fields([
+    { name: "handState", maxCount: 1 },
+    { name: "desiredDesign", maxCount: 1 },
+  ]),
+  dates.doCreate
+);
 router.get("/dates/list", secure.checkRole("admin"), dates.list);
 router.get("/dates/list/pending", secure.checkRole("admin"), dates.listPending);
-router.get("/dates/list/confirmed", secure.checkRole("admin"), dates.listConfirmed);
-
-router.get("/dates/:id/confirmation", secure.checkRole("admin"), dates.confirmation);
+router.get(
+  "/dates/list/confirmed",
+  secure.checkRole("admin"),
+  dates.listConfirmed
+);
+router.get(
+  "/dates/list/confirmedPlanning",
+  secure.checkRole("admin"),
+  dates.listPlanning
+);
+router.get(
+  "/dates/:id/confirmation",
+  secure.checkRole("admin"),
+  dates.confirmation
+);
 router.get("/dates/:id/update", dates.update);
-
-
-
 
 module.exports = router;

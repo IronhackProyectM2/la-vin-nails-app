@@ -77,11 +77,19 @@ module.exports.update = (req, res, next) => {
       Date.find().then((dates) => {
         res.render("dates/edit", { date, dates: JSON.stringify(dates) });
       });
-      
     })
     .catch(next);
 };
 
-
+module.exports.listPlanning = (req, res, next) => {
+  Date.find({ dateState: "Confirmada" })
+    .populate("user")
+    .populate("service")
+    .sort({ createdAt: req.query.sort || "asc" })
+    .then((dates) => {
+      res.render("dates/planning", { dates });
+    })
+    .catch(next);
+};
 
 // req.body.service, req.body.designComments

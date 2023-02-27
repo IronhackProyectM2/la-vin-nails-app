@@ -1,20 +1,32 @@
 <h1>Citas Solicitadas</h1>
 
 <div class="btn-group">
-  <a href="/dates/list/pending" class="btn btn-primary active" aria-current="page">Pendientes</a>
+  <a
+    href="/dates/list/pending"
+    class="btn btn-primary active"
+    aria-current="page"
+  >Pendientes</a>
   <a href="/dates/list/confirmed" class="btn btn-primary">Confirmadas</a>
+  <a href="/dates/list/confirmedPlanning" class="btn btn-primary">Planning</a>
 </div>
 
-<div class="container ">
+<div class="container">
   {{#each dates as |date|}}
-    <div class="card mb-6" >
+    <div class="card mb-6">
       <div class="card-body">
         <h6>Cliente:</h6>
-        <p class="card-text inline">{{date.user.name}} {{date.user.surname}}</p>        
+        <p class="card-text inline">{{date.user.name}} {{date.user.surname}}</p>
         <h5 class="card-title mb-3">{{date.service.name}}</h5>
         <p>
-          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#{{date.id}}" aria-expanded="false" aria-controls="collapseExample">
-          Detalles
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#{{date.id}}"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            Detalles
           </button>
         </p>
         <div class="collapse" id="{{date.id}}">
@@ -22,18 +34,28 @@
             <h6>Estado de manos:</h6>
             <img src="{{date.handState}}" class="card-img-top mb-3" alt="..." />
             <h6>Diseño deseado:</h6>
-            <img src="{{date.desiredDesign}}" class="card-img-top mb-3" alt="..." />
+            <img
+              src="{{date.desiredDesign}}"
+              class="card-img-top mb-3"
+              alt="..."
+            />
             <h6>Detalles de diseño: </h6>
-            <p class="card-text">{{date.designDetails}}</p>             
+            <p class="card-text">{{date.designDetails}}</p>
           </div>
-        </div>             
+        </div>
         <p class="card-text">Fecha: {{date.date}}</p>
         <p class="card-text">Turno: {{date.turn}}</p>
-        <a href="/dates/{{date.id}}/update" class="btn btn-secondary mb-3">Editar</a>
+        <a
+          href="/dates/{{date.id}}/update"
+          class="btn btn-secondary mb-3"
+        >Editar</a>
         <h6>Solicitud {{date.dateState}}</h6>
-        {{#isPending date }}
-        <a href="/dates/{{date.id}}/confirmation" class="btn btn-success">Confirmar cita</a>
-        {{/isPending}}        
+        {{#isPending date}}
+          <a
+            href="/dates/{{date.id}}/confirmation"
+            class="btn btn-success"
+          >Confirmar cita</a>
+        {{/isPending}}
       </div>
     </div>
   {{/each}}

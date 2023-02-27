@@ -42,16 +42,14 @@ hbs.registerHelper("isNotAuthenticated", (user, options) => {
   }
 });
 
-// hbs.registerHelper("isApoimentToday", (date, options) => {
-//   const todayDate = new Date().toISOString().split("T")[0]; // fecha actual pasada a formato de nuestro modelo
+hbs.registerHelper("isApoimentToday", (date, options) => {
+  const todayDate = new Date().toISOString().split("T")[0]; // fecha actual pasada a formato de nuestro modelo
+  console.log(todayDate);
 
-//   if (todayDate === date.date) {
-//     return options.fn();
-//     } else {
-//       return options.inverse();
-//   }
-
-// });
+  if (todayDate === date.date) {
+    return options.fn();
+  }
+});
 
 // hbs.registerHelper("isApoimentTomorrow", (date, options) => {
 //   const tomorrow = new Date(today.getTime() + i * 24 * 60 * 60 * 1000);// i = a cada día desde hoy siendo tomorrow 1 así en adelante

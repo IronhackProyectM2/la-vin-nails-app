@@ -1,3 +1,14 @@
+body {
+  margin: 0;
+  font-size: sans-serif;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
+.container {
+  margin-top: 10%;
+}
+
 .card-container {
   display: flex;
   align-items: center;
@@ -25,7 +36,7 @@ nav {
 }
 
 footer {
-  height: 200px;
+  margin: 0;
   font-weight: bold;
   border-top-left-radius: 15% 35%;
   border-top-right-radius: 15% 35%;

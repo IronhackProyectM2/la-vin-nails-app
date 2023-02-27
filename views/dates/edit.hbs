@@ -1,6 +1,11 @@
 <h1>Editar Cita</h1>
 
-<form action="/dates/{{service.id}}/new" method="POST" enctype="multipart/form-data" name="cita">
+<form
+  action="/dates/{{service.id}}/new"
+  method="POST"
+  enctype="multipart/form-data"
+  name="cita"
+>
 
   <div class="mb-3">
     <h5>Servicio {{date.service.name}}</h5>
@@ -12,10 +17,9 @@
     </select>
   </div>
 
-
-
   <div class="mb-3">
-    <label for="designDetails" class="form-label">Comentanos los detalles sobre el diseño</label>
+    <label for="designDetails" class="form-label">Comentanos los detalles sobre
+      el diseño</label>
     <textarea
       name="designDetails"
       class="form-control"
@@ -27,7 +31,7 @@
     <label for="date" class="form-label">Día</label>
     <input type="date" name="date" class="form-control" id="date" />
   </div>
-  
+
   <div class="mb-3">
     <label for="turn" class="form-label">Selecciona turno</label>
     <select id="turn" name="turn" class="form-control">
@@ -47,25 +51,18 @@
 </form>
 
 <script>
-  const dates = {{{dates}}}
+  const dates =
+  {{{dates}}}
   const selectedDate = document.getElementById("date")
-  selectedDate.addEventListener('change', function(event){
-    const selected = event.target.value
-    const dayDates = dates.filter(x => x.date === selected)
-    
-    dayDates.forEach(date => {
-      document.querySelectorAll(`option`).forEach( x => {
-      x.removeAttribute("disabled")
-      })
-      document.querySelector(`option[value='${date.turn}']`).setAttribute("disabled", true)
-    })
-  })
+  selectedDate.addEventListener('change', function(event){ const selected =
+  event.target.value const dayDates = dates.filter(x => x.date === selected)
+  dayDates.forEach(date => { document.querySelectorAll(`option`).forEach( x => {
+  x.removeAttribute("disabled") })
+  document.querySelector(`option[value='${date.turn}']`).setAttribute("disabled",
+  true) }) })
 </script>
 
-
-
 <script>
-  const dateInput = document.getElementById('date');
-  const currentDate = new Date().toISOString().split('T')[0];
-  dateInput.min = currentDate;
+  const dateInput = document.getElementById('date'); const currentDate = new
+  Date().toISOString().split('T')[0]; dateInput.min = currentDate;
 </script>
