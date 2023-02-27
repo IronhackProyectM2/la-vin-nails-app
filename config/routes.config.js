@@ -48,11 +48,7 @@ router.get(
   secure.checkRole("admin"),
   dates.listConfirmed
 );
-router.get(
-  "/dates/list/confirmedPlanning",
-  secure.checkRole("admin"),
-  dates.listPlanning
-);
+router.get("/dates/list/confirmedPlanning",  secure.checkRole("admin"),   dates.listPlanning );
 router.get(
   "/dates/:id/confirmation",
   secure.checkRole("admin"),

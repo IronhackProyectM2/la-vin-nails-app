@@ -32,7 +32,7 @@ body {
 } */
 
 nav {
-  background-color: #b4fcb4b5;
+  background-color: #cde1cd48;
 }
 
 footer {
@@ -41,4 +41,8 @@ footer {
   border-top-left-radius: 15% 35%;
   border-top-right-radius: 15% 35%;
   background-color: #fcd0b4;
+}
+
+.dorad-gradient {
+  background: linear-gradient(to bottom right, C6961E, E3AF2E);
 }

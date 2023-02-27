@@ -18,40 +18,43 @@
       <th class="text-center">Turno 8</th>
     </tr>
   </thead>
-  </table>
- 
-  
-    {{#each dates as |date|}}
-    {{#isApoimentToday date}}
-      <tr class="rotate-90">{{date.date}}
-      <td>
-        <div class="card mb-6">
-          <div class="card-body">
-            <h5 class="card-title mb-3">{{date.service.name}}</h5>
-            <p>
-              <button
-                class="btn btn-primary"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#{{date.id}}"
-                aria-expanded="false"
-                aria-controls="collapseExample"
-              >
-                Detalles
-              </button>
-            </p>
-            <h6>Solicitud {{date.dateState}}</h6>
-            {{!-- {{#isPending date}}
-              <a
-                href="/dates/{{date.id}}/confirmation"
-                class="btn btn-success"
-              >Confirmar cita</a>
-            {{/isPending}}
-         --}}
-      </td>
-      </tr>
 
-     {{/isApoimentToday}}
-    {{/each}}
-    
- 
+  {{#each dates as |date|}}
+  <p>{{date.user}}</p>
+    <tr>
+      <td>
+        {{#isApoimentToday date}}
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#{{date.id}}"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            {{date.user.name}}
+          </button>
+        {{/isApoimentToday}}
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{#isApoimentTomorrow date}}
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#{{date.id}}"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            {{date.user.name}}
+          </button>
+        {{/isApoimentTomorrow}}
+
+      </td>
+    </tr>
+
+  {{/each}}
+</table>
