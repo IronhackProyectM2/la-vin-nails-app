@@ -25,10 +25,10 @@
       <a class="nav-link" href="/users/{{currentUser.id}}/update">
         {{#isAuthenticated user}}
           <i class="fas fa-user text-secondary"></i>
-        {{/isAuthenticated}}
-        {{#isNotAuthenticated user}}
+        {{else}}
           <i class="fas fa-user text-primary"></i>
-        {{/isNotAuthenticated}}
+        {{/isAuthenticated}}
+
       </a>
     </div>
 
@@ -41,9 +41,11 @@
         >Servicios</a>
         <a class="nav-link" href="/users/new">Registro</a>
         <a class="nav-link" href="/users/{{currentUser.id}}/update">Mi perfil</a>
+        {{!-- {{#isAuthenticated user}} --}}
         {{#isAdmin currentUser}}
           <a class="nav-link" href="/dates/list/pending">Citas solicitadas</a>
         {{/isAdmin}}
+        {{!-- {{/isAuthenticated}} --}}
       </div>
     </div>
   </div>

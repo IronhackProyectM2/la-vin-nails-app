@@ -85,7 +85,9 @@ module.exports.listPlanning = (req, res, next) => {
   Date.find({ dateState: "Confirmada" })
     .populate("user")
     .populate("service")
+    .sort({ turn: req.query.sort || "asc" })
     .then((dates) => {
+      console.log(dates);
       res.render("dates/planning", { dates });
     })
     .catch(next);
