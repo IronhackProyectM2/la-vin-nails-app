@@ -1,12 +1,11 @@
-body {
-  margin: 0;
-  font-size: sans-serif;
-  display: grid;
-  min-height: 100vh;
-  grid-template-rows: auto 1fr auto;
+.body {
+  background-color: #fee8ef;
 }
+
+
 .container {
   margin-top: 10%;
+  
 }
 
 .card-container {
@@ -56,6 +55,21 @@ footer a {
 .btn-dark {
   background: rgb(194,115,4);
   background: linear-gradient(45deg, rgba(194,115,4,1) 0%, rgba(245,209,115,1) 54%, rgba(144,78,15,1) 100%);
+}
+
+.carrucelfoot {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  background: rgb(194,115,4);
+  background: linear-gradient(45deg, rgba(194,115,4,1) 0%, rgba(245,209,115,1) 54%, rgba(144,78,15,1) 100%);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: x-large;
+  text-shadow: 1px 1px 2px black;
+  border-radius: 0 0 10px 10px ;
+
 }
 
 /* verde #008471
