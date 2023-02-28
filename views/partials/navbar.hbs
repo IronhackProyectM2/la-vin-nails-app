@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg sticky-top ">
+<nav class="navbar navbar-expand-lg sticky-top">
 
   <div class="container-fluid">
     <div class="col col-lg-2">
@@ -23,11 +23,11 @@
     </div>
     <div class="col col-lg-2 text-end me-2">
       {{#isAuthenticated user}}
-      <a class="nav-link" href="/users/{{currentUser.id}}/update">      
-      <i class="fas fa-user text-success"></i></a>
+        <a class="nav-link" href="/users/{{currentUser.id}}/update">
+          <i class="fas fa-user text-success"></i></a>
       {{else}}
-      <a class="nav-link" href="/login">     
-      <i class="fas fa-user text-secondary"></i></a>      
+        <a class="nav-link" href="/login">
+          <i class="fas fa-user text-secondary"></i></a>
       {{/isAuthenticated}}
     </div>
 
@@ -40,12 +40,12 @@
         >Servicios</a>
         <a class="nav-link" href="/login">Login</a>
         {{#isAuthenticated user}}
-        <a class="nav-link" href="/users/{{currentUser.id}}/update">Mi perfil</a>
+          <a class="nav-link" href="/users/{{currentUser.id}}/update">Mi perfil</a>
         {{/isAuthenticated}}
         {{#isAuthenticated user}}
-        {{#isAdmin currentUser}}
-          <a class="nav-link" href="/dates/list/pending">Citas solicitadas</a>
-        {{/isAdmin}}
+          {{#isAdmin currentUser}}
+            <a class="nav-link" href="/dates/list/pending">Citas solicitadas</a>
+          {{/isAdmin}}
         {{/isAuthenticated}}
       </div>
     </div>

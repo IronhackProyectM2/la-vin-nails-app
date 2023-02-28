@@ -34,30 +34,67 @@ hbs.registerHelper("isAuthenticated", (user, options) => {
   }
 });
 
-// hbs.registerHelper("isNotAuthenticated", (currentUser, options) => {
-//   if (!currentUser.id) {
-//     return options.fn();
-//   } else {
-//     return options.inverse();
-//   }
-// });
-
-hbs.registerHelper("isApoimentToday", (date, options) => {
-  const todayDate = new Date().toISOString().split("T")[0]; // fecha actual pasada a formato de nuestro modelo
- 
-
-  if (todayDate === date.date) {
+hbs.registerHelper("isFirstTurn", (date, options) => {
+  if (date.turn === 1) {
     return options.fn();
+  } else {
+    return options.inverse();
   }
 });
 
-hbs.registerHelper("isApoimentTomorrow", (date, options) => {
-  const today = new Date();
-  const tomorrow = new Date(today.getTime() + 2 * 24 * 60 * 60 * 1000); // i = a cada día desde hoy siendo tomorrow 1 así en adelante
-  const tomorrowDate = tomorrow.toISOString().split("T")[0]; //da la fecha de mañana en formato de nuestra base de datos
-   console.log(tomorrowDate);
-  if (tomorrowDate === date.date) {
+hbs.registerHelper("isSecondTurn", (date, options) => {
+  if (date.turn === 2) {
     return options.fn();
+  } else {
+    return options.inverse();
+  }
+});
+
+hbs.registerHelper("isThirdTurn", (date, options) => {
+  if (date.turn === 3) {
+    return options.fn();
+  } else {
+    return options.inverse();
+  }
+});
+
+hbs.registerHelper("isFourthTurn", (date, options) => {
+  if (date.turn === 4) {
+    return options.fn();
+  } else {
+    return options.inverse();
+  }
+});
+
+hbs.registerHelper("isFifthTurn", (date, options) => {
+  if (date.turn === 5) {
+    return options.fn();
+  } else {
+    return options.inverse();
+  }
+});
+
+hbs.registerHelper("isSixthTurn", (date, options) => {
+  if (date.turn === 6) {
+    return options.fn();
+  } else {
+    return options.inverse();
+  }
+});
+
+hbs.registerHelper("isSeventhTurn", (date, options) => {
+  if (date.turn === 7) {
+    return options.fn();
+  } else {
+    return options.inverse();
+  }
+});
+
+hbs.registerHelper("isEighthTurn", (date, options) => {
+  if (date.turn === 8) {
+    return options.fn();
+  } else {
+    return options.inverse();
   }
 });
 
