@@ -76,12 +76,16 @@ footer a {
 }
 
 .view {
-  min-height: 500px;
+  min-height: 550px;
 }
 
 h1 {
   font-size: 300px;
   color: #ed2d6a;
+}
+
+.turnos {
+  color: aqua;
 }
 
 /* verde #008471

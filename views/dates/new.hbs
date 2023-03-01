@@ -1,60 +1,100 @@
-<h1>Completa el forulario para solicitar tu cita</h1>
+<div class="container view">
 
-<form action="/dates/{{service.id}}/new" method="POST" enctype="multipart/form-data" name="cita">
+<div class="mb-4">
+  <h1>Completa el forulario para solicitar tu cita</h1>
+</div>
 
-  <div class="input-group mb-3">
-    <label class="input-group-text" for="handState"><i class="fa fa-picture-o"></i></label>
-    <input type="file" name="handState" class="form-control" id="handState" />
-  </div>
+<div>
+  <form action="/dates/{{service.id}}/new" method="POST" enctype="multipart/form-data" name="cita">
 
-  <div class="input-group mb-3">
-    <label class="input-group-text" for="desiredDesign"><i class="fa fa-picture-o"></i></label>
-    <input type="file" name="desiredDesign" class="form-control" id="desiredDesign"/>
-  </div>
+    <div class="card mb-3">
+      {{!-- <div class="card-header">
+        Queremos conocerte mejor
+      </div> --}}
+        <div class="card-body">
+          <h5 class="card-title">¿Como se encuentran tus manos?</h5>
+          <p class="card-text">Sube una foto donde podamos ver el estado de tus uñas y mano en general.</p>
+          <div class="input-group ">
+            <label class="input-group-text" for="handState"><i class="fas fa-user text-success"></i></label>
+            <input type="file" name="handState" class="form-control" id="handState" />
+          </div>    
+      </div>
+    </div>
 
-  <div class="mb-3">
-    <h5>Seleccionaste {{service.name}}</h5>
-    <label for="type" class="form-label">Selecciona un tipo de terminación</label>
-    <select id="type" name="type" class="form-control">
-      {{#each service.type as |type|}}
-        <option id="{{type}}" value="{{type}}">{{type}}</option>
-      {{/each}}
-    </select>
-  </div>
-
-
-
-  <div class="mb-3">
-    <label for="designDetails" class="form-label">Comentanos los detalles sobre el diseño</label>
-    <textarea
-      name="designDetails"
-      class="form-control"
-      type="designDetails"
-    ></textarea>
-  </div>
-
-  <div class="mb-3">
-    <label for="date" class="form-label">Día</label>
-    <input type="date" name="date" class="form-control" id="date" />
-  </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5>Elegiste "{{service.name}}"</h5>
+        <label for="type" class="form-label">Selecciona un tipo de terminación.</label>
+        <select id="type" name="type" class="form-control">
+          {{#each service.type as |type|}}
+            <option id="{{type}}" value="{{type}}">{{type}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
   
-  <div class="mb-3">
-    <label for="turn" class="form-label">Selecciona turno</label>
-    <select id="turn" name="turn" class="form-control">
-      <option value="1">10 a 11 hs.</option>
-      <option value="2">11 a 12 hs.</option>
-      <option value="3">12 a 13 hs.</option>
-      <option value="4">16 a 17 hs.</option>
-      <option value="5">17 a 18 hs.</option>
-      <option value="6">18 a 19 hs.</option>
-      <option value="7">19 a 20 hs.</option>
-      <option value="8">20 a 21 hs.</option>
-    </select>
-  </div>
 
-  <button type="submit" class="btn btn-primary">Solicitar cita</button>
-  <a href="/services/list" class="btn btn-primary">Volver atrás</a>
-</form>
+    <div class="card mb-3">
+      {{!-- <div class="card-header">
+        Como te gusta verte?      
+      </div> --}}
+        <div class="card-body">
+          <h5 class="card-title">¿Como te gustaría verlas?</h5>
+          <p class="card-text">Sube una foto de como deseas el diseño para tus uñas.</p>
+        <div class="input-group">
+          <label class="input-group-text" for="desiredDesign"><i class="fa fa-picture-o"></i></label>
+          <input type="file" name="desiredDesign" class="form-control" id="desiredDesign"/>
+        </div>    
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      {{!-- <div class="card-header">
+        Como te gusta verte?      
+      </div> --}}
+        <div class="card-body">
+          <h5 class="card-title">Más detalles..</h5>
+          <p class="card-text">Comentanos los detalles sobre el diseño que deseas, o lo que consideres necesario informarnos.</p>
+        <div class="input-group">
+          <textarea name="designDetails" class="form-control" type="designDetails"></textarea>        
+        </div>    
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">¿Que día quieres agendar?</h5>
+        <div class="mb-3">
+          <label for="date" class="form-label">Seleccióna para ver los turnos disponibles.</label>
+          <input type="date" name="date" class="form-control" id="date" />
+        </div>
+        <label for="turn" class="form-label">Selecciona turno</label>
+        <select id="turn" name="turn" class="form-control">
+          <option value="mañana" disabled>Por la mañana</option>
+          <option  value="1">10 a 11 hs.</option>
+          <option value="2">11 a 12 hs.</option>
+          <option value="3">12 a 13 hs.</option>
+          <option value="mañana" disabled>Por la tarde</option>
+          <option value="4">16 a 17 hs.</option>
+          <option value="5">17 a 18 hs.</option>
+          <option value="6">18 a 19 hs.</option>
+          <option value="7">19 a 20 hs.</option>
+          <option value="8">20 a 21 hs.</option>
+        </select>      
+      </div>  
+    </div>
+    <div class="center">
+      <button type="submit" class="btn btn-dark">Solicitar cita</button>
+    </div>
+
+
+  </form>
+</div>
+
+<a href="/services/list" class="btn btn-primary">Volver atrás</a>
+
+
+</div>
 
 <script>
   const dates = {{{dates}}}
@@ -63,10 +103,11 @@
     const selected = event.target.value
     const dayDates = dates.filter(x => x.date === selected)
     
-    dayDates.forEach(date => {
-      document.querySelectorAll(`option`).forEach( x => {
+    document.querySelectorAll(`option`).forEach( x => {
       x.removeAttribute("disabled")
       })
+
+    dayDates.forEach(date => {      
       document.querySelector(`option[value='${date.turn}']`).setAttribute("disabled", true)
     })
   })

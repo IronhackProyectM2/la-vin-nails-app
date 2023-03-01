@@ -26,8 +26,8 @@ hbs.registerHelper("isPending", (date, options) => {
   }
 });
 
-hbs.registerHelper("isAuthenticated", (user, options) => {
-  if (user?.id) {
+hbs.registerHelper("isLoged", (userId, currentUser, options) => {
+  if (currentUser) {
     return options.fn();
   } else {
     return options.inverse();
