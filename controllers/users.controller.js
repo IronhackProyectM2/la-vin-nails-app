@@ -38,3 +38,15 @@ module.exports.update = (req, res, next) => {
     })
     .catch(next);
 };
+
+
+// if (req.session.user) {
+//   User.findById(req.params.id)
+//     .then((user) => {
+//       res.render("users/edit", { user });
+//     })
+//     .catch(next);
+  
+// } else {
+//   res.redirect("/login");
+// }
