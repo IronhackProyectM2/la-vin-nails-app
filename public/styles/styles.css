@@ -1,11 +1,9 @@
 .body {
   background-color: #fee8ef;
-
 }
 
-
 .container {
-  margin-top: 20px;  
+  margin-top: 20px;
 }
 
 .card-container {
@@ -30,6 +28,14 @@
   filter: contrast(120%);
 } */
 
+h5 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  font-style: normal;
+  font-weight: 400;
+  font: inherit;
+}
+
 nav {
   background-color: white;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
@@ -53,22 +59,32 @@ footer a {
 }
 
 .btn-dark {
-  background: rgb(194,115,4);
-  background: linear-gradient(45deg, rgba(194,115,4,1) 0%, rgba(245,209,115,1) 54%, rgba(144,78,15,1) 100%);
+  background: rgb(194, 115, 4);
+  background: linear-gradient(
+    45deg,
+    rgba(194, 115, 4, 1) 0%,
+    rgba(245, 209, 115, 1) 54%,
+    rgba(144, 78, 15, 1) 100%
+  );
 }
 
 .carrucelfoot {
   padding: 5px;
   display: flex;
   justify-content: center;
-  background: rgb(194,115,4);
-  background: linear-gradient(45deg, rgba(194,115,4,1) 0%, rgba(245,209,115,1) 54%, rgba(144,78,15,1) 100%);
+  background: rgb(194, 115, 4);
+  background: linear-gradient(
+    45deg,
+    rgba(194, 115, 4, 1) 0%,
+    rgba(245, 209, 115, 1) 54%,
+    rgba(144, 78, 15, 1) 100%
+  );
   color: white;
   font-weight: bold;
   text-decoration: none;
   font-size: x-large;
   text-shadow: 1px 1px 2px black;
-  border-radius: 0 0 10px 10px ;
+  border-radius: 0 0 10px 10px;
 }
 
 .carround {

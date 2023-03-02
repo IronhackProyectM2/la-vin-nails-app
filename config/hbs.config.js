@@ -3,7 +3,7 @@ const hbs = require("hbs");
 hbs.registerPartials(`${__dirname}/../views/partials`);
 
 hbs.registerHelper("isAdmin", (currentUser, options) => {
-  console.log(currentUser)
+  console.log(currentUser);
   if (currentUser.role === "admin") {
     return options.fn();
   } else {
@@ -36,15 +36,13 @@ hbs.registerHelper("isAuthenticated", (currentUser, options) => {
 });
 
 hbs.registerHelper("dateInTurn", function (dates, turn, options) {
-  const turns = dates.map(x => x.turn )
-  console.log(turns)
-  
+  const turns = dates.map((x) => x.turn);
+  console.log(turns);
 
   if (turns.includes(turn)) {
-    
-    return options.fn(this)
+    return options.fn(this);
   } else {
-    return options.inverse(this)
+    return options.inverse(this);
   }
 });
 
@@ -55,5 +53,3 @@ hbs.registerHelper("ifTurns", (date, turn, options) => {
     return options.inverse();
   }
 });
-
-
