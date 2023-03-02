@@ -21,6 +21,7 @@ router.post("/login", users.doLogin);
 router.get("/users/new", users.create);
 router.post("/users", users.doCreate);
 router.get("/users/:id/update", users.update);
+router.get("/logout", users.logout);
 
 //FOR Service controller:
 router.get("/services/list", services.list);

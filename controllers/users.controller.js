@@ -39,6 +39,12 @@ module.exports.update = (req, res, next) => {
     .catch(next);
 };
 
+module.exports.logout = (req, res, next) => {
+  req.session.destroy();
+  req.session = null
+  res.redirect('/')
+}
+
 
 // if (req.session.user) {
 //   User.findById(req.params.id)

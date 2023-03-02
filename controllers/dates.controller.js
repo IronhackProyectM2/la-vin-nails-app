@@ -83,6 +83,16 @@ module.exports.update = (req, res, next) => {
 
 module.exports.listPlanning = (req, res, next) => {
   const selectDate = req.query.fecha;
+  const turns = [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+  ]
 
   Date.find({ dateState: "Confirmada", date: selectDate })
     .populate("user")
@@ -90,7 +100,7 @@ module.exports.listPlanning = (req, res, next) => {
     .sort({ turn: req.query.sort || "asc" })
     .then((dates) => {
       console.log(dates);
-      res.render("dates/planning", { dates });
+      res.render("dates/planning", { dates, turns });
     })
     .catch(next);
 };

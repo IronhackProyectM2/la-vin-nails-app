@@ -37,12 +37,12 @@ app.use((req, res, next) => {
   next(createError(404, "Page not found"));
 });
 
-app.use((error, req, res, next) => {
-  error = !error.status ? createError(500, error) : error;
-  console.error(error);
+// app.use((error, req, res, next) => {
+//   error = !error.status ? createError(500, error) : error;
+//   console.error(error);
 
-  res.status(error.status).render(`errors/${error.status}`, { error });
-});
+//   res.status(error.status).render(`errors/${error.status}`, { error });
+// });
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.info(`App listening at por ${port}`));

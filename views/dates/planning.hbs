@@ -9,108 +9,40 @@
 
 <form action="/dates/list/confirmedPlanning" method="get">
   <label for="fecha">Seleccionar fecha:</label>
-  <button type="submit"><input type="date" id="fecha" name="fecha" /></button>
+  <input type="date" id="fecha" name="fecha" />
+  <button type="submit">enviar</button>
 </form>
 
-{{! <div class="mb-3">
-      <form action="
-      
-      "></form>
-    <label for="date" class="form-label">Día</label>
-    <input type="date" name="date" class="form-control" id="date" />
-    </div> }}
-
-{{#each dates as |date|}}
-
-  {{#isFirstTurn date}}
-    <div class="card mb-6">
-      <div class="card-body">
-        <h6>Cliente:</h6>
-        <p class="card-text inline">{{date.user.name}}</p>
-        <h5 class="card-title mb-3">{{date.service.name}}</h5>
-        <h5 class="card-title mb-3">{{date.designDetails}}</h5>
-        <p>
-          <button
-            class="btn btn-primary"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#{{date.id}}"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-          >
-            Detalles
-          </button>
-        </p>
-        <div class="collapse" id="{{date.id}}">
-          <div class="card card-body">
-            <h6>Estado de manos:</h6>
-            <img src="{{date.handState}}" class="card-img-top mb-3" alt="..." />
-            <h6>Diseño deseado:</h6>
-            <img
-              src="{{date.desiredDesign}}"
-              class="card-img-top mb-3"
-              alt="..."
-            />
-            <h6>Detalles de diseño: </h6>
-            <p class="card-text">{{date.designDetails}}</p>
-          </div>
+<div>
+  {{#each turns as |turn|}}
+<div>
+  {{#dateInTurn ../dates turn}}
+    {{#each ../dates as | date |}}
+      {{#ifTurns date turn}}
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{date.user.name}}</h5>
+          <h6 class="card-title">Servicio: </h6>
+          <p>{{date.service.name}}</p>
         </div>
       </div>
-    </div>
+      {{/ifTurns}}
+    {{/each}}
+    
   {{else}}
-    <div class="card bg-light">
-      <div class="card-body">
-        Sin cita
-      </div>
-    </div>
-  {{/isFirstTurn}}
-  {{#isSecondTurn date}}
-    <div class="card mb-6">
-      <div class="card-body">
-        <h6>Cliente:</h6>
-        <p class="card-text inline">{{date.user.name}}</p>
-        <h5 class="card-title mb-3">{{date.service.name}}</h5>
-        <h5 class="card-title mb-3">{{date.designDetails}}</h5>
-        <p>
-          <button
-            class="btn btn-primary"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#{{date.id}}"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-          >
-            Detalles
-          </button>
-        </p>
-        <div class="collapse" id="{{date.id}}">
-          <div class="card card-body">
-            <h6>Estado de manos:</h6>
-            <img src="{{date.handState}}" class="card-img-top mb-3" alt="..." />
-            <h6>Diseño deseado:</h6>
-            <img
-              src="{{date.desiredDesign}}"
-              class="card-img-top mb-3"
-              alt="..."
-            />
-            <h6>Detalles de diseño: </h6>
-            <p class="card-text">{{date.designDetails}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  {{else}}
-    <div class="card bg-light">
-      <div class="card-body">
-        Sin cita
-      </div>
-    </div>
-
-  {{/isSecondTurn}}
-
-{{/each}}
-
+  <div class="card mb-3">
+    <div class="card-body">
+      no hay cita en turno {{turn}}
+    </div>    
+    
+  </div>
+  {{/dateInTurn}}
 </div>
+{{/each}}
+</div>
+
+
+
 
 <script>
   const dates =
