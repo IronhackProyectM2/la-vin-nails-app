@@ -8,7 +8,7 @@ require("./config/db.config");
 
 require("./config/hbs.config");
 
-const { session, loadSessionUser } = require("./config/session.config");
+const { session, loadSessionUser } = require("./config/session.config"); 
 
 const path = require("path");
 

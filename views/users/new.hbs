@@ -1,86 +1,78 @@
-<div class="container">
+<div class="container view">
   
-  <h1 class="view-title mb-3">Registrate</h1>
+  
 
   <div class="card">
-    <div class="card-body">      
 
-      <form action="/users" method="POST">
-      
-        <div class="mb-3">
-          <label for="name" class="form-label">Nombre</label>
-          <div class="input-group">
-            <input
+    <div class="card-header">
+      <h1 class="view-title"><strong>Registrate</strong></h1>    
+    </div>     
+
+    <div class="card-body">
+
+      <form action="/users" method="POST">      
+       
+        <div class="input-group mb-4 mt-2">
+          <span class="input-group-text back-icon"><i class="fa fa-user fa-fw"></i></span>
+          <input type="text" value="{{user.name}}" name="name" class="form-control {{#if errors.name}}is-invalid{{/if}}" placeholder="Nombre">
+          {{#if errors.name}}<div class="invalid-feedback">{{errors.name}}</div>{{/if}}       
+        </div>           
+
+        <div class="input-group mb-4"><span class="input-group-text back-icon"><i class="fa fa-user fa-fw" ></i></span>     
+          <input
             type="text"
-            value="{{user.name}}"
-            name="name"
-            class="form-control"
-            id="name"
-            />
-            {{#if error.name}}<div class="invalid-feedback">{{errors.name}}</div>{{/if}}       
-          </div>
+            value="{{user.surname}}"
+            name="surname"
+            class="form-control
+            {{#if errors.surname}}is-invalid{{/if}}"
+            placeholder="Apellido"
+          >
+          {{#if errors.surname}}<div class="invalid-feedback">{{errors.surname}}</div>{{/if}}  
         </div>
-
-        <div class="mb-3">
-          <label for="surname" class="form-label">Apellido</label>
-          <div class="input-group">          
-            <input
-              type="text"
-              value="{{user.surname}}"
-              name="surname"
-              class="form-control"
-              id="surname"
-            />
-            {{#if error.surname}}<div class="invalid-feedback">{{errors.surname}}</div>{{/if}}  
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="phone" class="form-label">Teléfono</label>
-          <div class="input-group"><span class="input-group-text"><i class="bi bi-phone"></i></span>
-            <input
-              type="number"
-              value="{{user.phone}}"
-              name="phone"
-              class="form-control"
-              id="phone"
-            />
-          </div>
-            {{#if error.phone}}<div class="invalid-feedback">{{errors.phone}}</div>{{/if}}  
-        </div>     
         
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <div class="input-group">
-            <span class="input-group-text"><i class="fa fa-envelope fa-fw"></i></span>
+
+        <div class="input-group mb-4"><span class="input-group-text back-icon"><i class="fa fa-mobile fa-fw"></i></span>
+          <input
+            type="number"
+            value="{{user.phone}}"
+            name="phone"
+            class="form-control {{#if errors.phone}}is-invalid{{/if}}"
+            placeholder="Telefono"              
+          >
+          {{#if errors.phone}}<div class="invalid-feedback">{{errors.phone}}</div>{{/if}}
+        </div>
+              
+             
+        
+      
+          <div class="input-group mb-4">
+            <span class="input-group-text back-icon"><i class="fa fa-envelope fa-fw"></i></span>
             <input
               type="email"
               value="{{user.email}}"
               name="email"
-              class="form-control"
-              id="email"
-            />
-            {{#if error.email}}<div class="invalid-feedback">{{errors.email}}</div>{{/if}}
-          </div>          
+              class="form-control {{#if errors.email}}is-invalid{{/if}}"
+              placeholder="user@example.org"
+              
+            >
+            {{#if errors.email}}<div class="invalid-feedback">{{errors.email}}</div>{{/if}}   
         </div>
         
 
-        <div class="mb-3">
-          <label for="password" class="form-label">Contraseña</label>
-          <div class="input-group">          
-            <input
-              type="password"
-              value="{{user.password}}"
-              name="password"
-              class="form-control"
-              id="password"
-            />
-            {{#if error.password}}<div class="invalid-feedback">{{errors.password}}</div>{{/if}}  
-          </div>
+        <div class="input-group mb-4">  
+          <span class="input-group-text back-icon"><i class="fa fa-lock fa-fw"></i></span>                  
+          <input
+            type="password"
+            value="{{user.password}}"
+            name="password"
+            class="form-control {{#if errors.password}}is-invalid{{/if}}" placeholder="Contraseña"
+          >
+          {{#if errors.password}}<div class="invalid-feedback">{{errors.password}}</div>{{/if}}  
         </div>
+    
 
         <div class="text-end">
-          <button type="submit" class="btn btn-primary mt-3">Registrarse</button>
+          <button type="submit" class="btn btn-primary">Registrarse</button>
         </div>        
 
       </form>
