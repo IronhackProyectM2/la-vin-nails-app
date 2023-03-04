@@ -65,14 +65,14 @@
             type="password"
             value="{{user.password}}"
             name="password"
-            class="form-control {{#if errors.password}}is-invalid{{/if}}" placeholder="Contraseña"
+            class="form-control {{#if errors.password}}is-invalid{{/if}}" placeholder="******"
           >
           {{#if errors.password}}<div class="invalid-feedback">{{errors.password}}</div>{{/if}}  
         </div>
     
 
         <div class="text-end">
-          <button type="submit" class="btn btn-primary">Registrarse</button>
+          <button type="submit" class="btn btn-pink">Registrarse</button>
         </div>        
 
       </form>

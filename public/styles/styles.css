@@ -113,14 +113,19 @@ h1 {
   font-size: 300px;
   color: #ed2d6a;
 }
-
-
-
-.view-container-planning {
+.view-title-ser {
+  font-size: 1em;
+  color: #008471;
+  text-align: center;
+}
+s .view-container-planning {
   max-width: 800px;
   margin: 0 auto;
   background-color: #f9f9f9;
-  background-image: linear-gradient(45deg, #f9f9f9 25%, transparent 25%), linear-gradient(-45deg, #f9f9f9 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f9f9f9 75%), linear-gradient(-45deg, transparent 75%, #f9f9f9 75%);
+  background-image: linear-gradient(45deg, #f9f9f9 25%, transparent 25%),
+    linear-gradient(-45deg, #f9f9f9 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #f9f9f9 75%),
+    linear-gradient(-45deg, transparent 75%, #f9f9f9 75%);
   background-size: 20px 20px;
 }
 
@@ -136,20 +141,26 @@ h1 {
 }
 
 .form-label-planning {
-  font-size: 1.2em
+  font-size: 1.2em;
 }
 
 .input-group-text.back-icon {
   background-color: #fee8ef;
-
 }
 
 .input-group-text i {
   color: #ed2d6a;
 }
 
-.btn-style {
-  color: #ed2d6a;
+.btn.btn-pink {
+  background-color: #ed2d6a;
+  font-weight: bold;
+  color: white;
+}
+
+.img-perfil {
+  height: 20%;
+  width: 40%;
 }
 
 /* verde #008471
