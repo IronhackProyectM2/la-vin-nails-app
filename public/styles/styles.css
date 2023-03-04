@@ -164,6 +164,22 @@ s .view-container-planning {
   color: white;
 }
 
+.btn.btn-dor {
+  background: rgb(194, 115, 4);
+  background: linear-gradient(
+    45deg,
+    rgba(194, 115, 4, 1) 0%,
+    rgba(245, 209, 115, 1) 54%,
+    rgba(144, 78, 15, 1) 100%
+  );
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  border: 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.692);
+  padding: 5px 15px;  
+}
+
 .img-perfil {
   height: 20%;
   width: 40%;

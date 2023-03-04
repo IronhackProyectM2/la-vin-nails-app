@@ -3,10 +3,13 @@
 </div>
 
 <hr />
+
+
+
 <div class="card-container-services">
   {{#each services as |service|}}
     <div
-      class="card mb-3 border border-4 shadow-lg p-3 mb-5 bg-body-tertiary rounded"
+      class="card mb-3 shadow-lg p-3 m-2 bg-body-tertiary rounded"
       id="services-container"
       style="max-width: 540px;"
     >
@@ -17,17 +20,14 @@
             class="img-fluid rounded mx-1 my-1"
             alt="..."
           />
-        </div>
-        <div class="col-md-8 text-center">
-          <div class="card-body mx-1 my-1">
-            <h5 class="card-title">{{service.name}}</h5>
+        </div>        
+          <div class="card-body">
+            <h6 class="card-title">{{service.name}}</h6>
             <p class="card-text">{{service.description}}</p>
-            <a
-              href="/services/{{service.id}}/schedule"
-              class="btn btn-dark"
+            <a href="/services/{{service.id}}/schedule"
+              class="btn btn-dor col-12"
             >Solicitar cita</a>
-          </div>
-        </div>
+          </div>    
 
       </div>
 
