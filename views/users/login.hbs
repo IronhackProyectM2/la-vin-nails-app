@@ -1,5 +1,5 @@
 <div class="container view ">
-  <div class="card">
+  <div class="card mb-4">
     <div class="card-header">
       <h1 class="view-title"><strong>Login</strong>
     </strong></h1>
@@ -9,22 +9,34 @@
         <div class="input-group mb-4 mt-2">
           <span class="input-group-text back-icon"><i class="fa fa-envelope fa-fw"></i></span>
           <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <div id="emailHelp" class="form-text">Nunca compartiremos tu e-mail con nadie.</div>
            
         </div>
         <div class="input-group mb-4">
           <div class="input-group">
           <span class="input-group-text back-icon"><i class="fa fa-lock fa-fw"></i></span>
-          <input type="password" class="form-control {{#if errors.password}}is-invalid{{/if}}" placeholder="******" name="password">
+          <input type="password" class="form-control {{#if errors.password}}is-invalid{{/if}}" placeholder="********" name="password">
           {{#if errors.password}}<div class="invalid-feedback">{{errors.password}}</div>{{/if}}
           </div>  
         </div>
-          
-        <button type="submit" class="btn btn-pink">Login</button>
-        <a class="btn btn-outline btn-pink" type="button" href="users/new">Registrate</a>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-pink mt-2 col-12">Iniciar sesión</button>
+        </div>        
+        
       </form>
     </div>
+  </div>
 
+  <div class="card">
+    <div class="card-body text-center">
+      <div class="">
+        <i class="fa fa-user fa-4x reg-i mt-3" ></i>
+        <h4 class="m-4">¿Aún no eres cliente?</h4>
+      </div>
+      <a class="btn btn-outline btn-green col-12
+      " type="button" href="users/new">Registrate</a>
+    </div>
   </div>
   
   

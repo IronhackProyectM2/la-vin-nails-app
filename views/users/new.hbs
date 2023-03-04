@@ -1,11 +1,9 @@
 <div class="container view">
-  
-  
 
   <div class="card">
 
     <div class="card-header">
-      <h1 class="view-title"><strong>Registrate</strong></h1>    
+      <h1 class="view-title mt-2"><strong>Registrarse</strong></h1>    
     </div>     
 
     <div class="card-body">
@@ -68,11 +66,12 @@
             class="form-control {{#if errors.password}}is-invalid{{/if}}" placeholder="******"
           >
           {{#if errors.password}}<div class="invalid-feedback">{{errors.password}}</div>{{/if}}  
-        </div>
-    
+        </div>  
 
-        <div class="text-end">
-          <button type="submit" class="btn btn-pink">Registrarse</button>
+        <p class="card-text registerText m-2">Al aceptar este formulario aceptas que tus datos personales sean utiliazados para procesar tus pedidos, mejorar tu experiencia en esta web, gestionar el acceso a tu cuenta y otros propósitos descritos en nuestra <strong>política de privacidad.</strong></p>                
+        
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-pink col-12">Registrarse</button>
         </div>        
 
       </form>

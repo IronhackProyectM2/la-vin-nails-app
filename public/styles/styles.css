@@ -130,7 +130,7 @@ s .view-container-planning {
 }
 
 .view-title {
-  font-size: 2em;
+  font-size: 1.5em;
   color: #008471;
   text-align: center;
 }
@@ -158,9 +158,26 @@ s .view-container-planning {
   color: white;
 }
 
+.btn.btn-green {
+  background-color: #008471;
+  font-weight: bold;
+  color: white;
+}
+
 .img-perfil {
   height: 20%;
   width: 40%;
+}
+
+.registerText {
+  font-size: 0.8rem;
+  line-height : 1rem;
+  text-align: center;
+}
+
+.reg-i {
+  color: #ed2d6a;
+  height: 50px;
 }
 
 /* verde #008471
