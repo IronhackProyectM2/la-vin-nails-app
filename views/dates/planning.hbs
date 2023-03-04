@@ -1,48 +1,46 @@
-<div class="container view">
+<div class="view-container">
+  <h1 class="view-title">Agenda</h1>
 
-
-<h1>Planning Citas</h1>
-
-<div class="btn-group">
-  <a href="/dates/list/confirmed" class="btn btn-primary">Volver atrás</a>
-</div>
-
-<form action="/dates/list/confirmedPlanning" method="get">
-  <label for="fecha">Seleccionar fecha:</label>
-  <input type="date" id="fecha" name="fecha" />
-  <button type="submit">enviar</button>
-</form>
-
-<div>
-  {{#each turns as |turn|}}
-<div>
-  {{#dateInTurn ../dates turn}}
-    {{#each ../dates as | date |}}
-      {{#ifTurns date turn}}
-      <div class="card mb-3">
-        <div class="card-body">
-          <h5 class="card-title">{{date.user.name}}</h5>
-          <h6 class="card-title">Servicio: </h6>
-          <p>{{date.service.name}}</p>
-        </div>
-      </div>
-      {{/ifTurns}}
-    {{/each}}
-    
-  {{else}}
-  <div class="card mb-3">
-    <div class="card-body">
-      no hay cita en turno {{turn}}
-    </div>    
-    
+  <div class="form-container-planning">
+    <form action="/dates/list/confirmedPlanning" method="get">
+      <label for="fecha" class="form-label-planning">Selecciona la fecha:</label>
+      <input type="date" id="fecha" name="fecha" class="form-input" />
+      <button type="submit" class="form-button">Buscar</button>
+    </form>
   </div>
-  {{/dateInTurn}}
+
+  <div class="dates-container">
+    {{#each turns as |turn|}}
+      <div class="turn-container">
+        {{#dateInTurn ../dates turn}}
+          {{#each ../dates as | date |}}
+            {{#ifTurns date turn}}
+              <div class="card">
+                <div class="card-header">
+                  <h2 class="card-title">{{date.user.name}}</h2>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-subtitle">Servicio:</h3>
+                  <p class="card-text">{{date.service.name}}</p>
+                </div>
+              </div>
+            {{/ifTurns}}
+          {{/each}}        
+        {{else}}
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text">No hay citas en el turno {{turn}}</p>
+            </div>          
+          </div>
+        {{/dateInTurn}}
+      </div>
+    {{/each}}
+  </div>
+
+  <div class="button-container">
+    <a href="/dates/list/confirmed" class="button-link">Volver atrás</a>
+  </div>
 </div>
-{{/each}}
-</div>
-
-
-
 
 <script>
   const dates =

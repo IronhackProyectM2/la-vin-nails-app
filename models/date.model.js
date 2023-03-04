@@ -11,9 +11,9 @@ const dateSchema = new mongoose.Schema(
       ref:"Service",
       required: [true, "Seleccione un servicio"],
     },
-    tipo: {
+    type : {
       type: String,
-      //required: [true, "Seleccione un tipo de servicio"],
+      required: [true, "Seleccione un tipo de servicio"],
     },
     handState: {
       type: String,
@@ -21,6 +21,7 @@ const dateSchema = new mongoose.Schema(
     },
     desiredDesign: {
       type: String,
+
     },
     designDetails: {
       type: String,
@@ -29,7 +30,7 @@ const dateSchema = new mongoose.Schema(
     },    
     date: {
       type: String,
-      // required: [true, "Es necesario seleccionar un día"],
+      required: [true, "Es necesario seleccionar un día"],
     },
     turn: {
       type: "Number",

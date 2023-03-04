@@ -2,6 +2,11 @@ const hbs = require("hbs");
 
 hbs.registerPartials(`${__dirname}/../views/partials`);
 
+
+hbs.registerHelper("phathActive", (currentPath, desiredPath) => {
+  return currentPath === desiredPath ? "active" : "";
+});
+
 hbs.registerHelper("isAdmin", (currentUser, options) => {
   console.log(currentUser);
   if (currentUser.role === "admin") {

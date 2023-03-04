@@ -1,60 +1,62 @@
-<h1 class="container view mb-3">Mi Perfil</h1>
+<div class="container view mb-3">
+  <h1 class="">Mi Perfil</h1>
 
-<form action="/users/{{user.id}}" method="POST">
-  <div class="mb-3">
-    <label for="name" class="form-label">Nombre</label>
-    <input
-      type="text"
-      value="{{user.name}}"
-      name="name"
-      class="form-control"
-      id="name"
-    />
-  </div>
+  <form action="/users/{{user.id}}" method="POST">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre</label>
+      <input
+        type="text"
+        value="{{user.name}}"
+        name="name"
+        class="form-control"
+        id="name"
+      />
+    </div>
 
-  <div class="mb-3">
-    <label for="surname" class="form-label">Apellido</label>
-    <input
-      type="text"
-      value="{{user.surname}}"
-      name="surname"
-      class="form-control"
-      id="surname"
-    />
-  </div>
+    <div class="mb-3">
+      <label for="surname" class="form-label">Apellido</label>
+      <input
+        type="text"
+        value="{{user.surname}}"
+        name="surname"
+        class="form-control"
+        id="surname"
+      />
+    </div>
 
-  <div class="mb-3">
-    <label for="phone" class="form-label">Teléfono</label>
-    <input
-      type="number"
-      value="{{user.phone}}"
-      name="phone"
-      class="form-control"
-      id="phone"
-    />
-  </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Teléfono</label>
+      <input
+        type="number"
+        value="{{user.phone}}"
+        name="phone"
+        class="form-control"
+        id="phone"
+      />
+    </div>
 
-  <div class="mb-3">
-    <label for="email" class="form-label">Email</label>
-    <input
-      type="email"
-      value="{{user.email}}"
-      name="email"
-      class="form-control"
-      id="email"
-    />
-  </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        value="{{user.email}}"
+        name="email"
+        class="form-control"
+        id="email"
+      />
+    </div>
 
-  <div class="mb-3">
-    <label for="password" class="form-label">Contraseña</label>
-    <input
-      type="password"
-      value="{{user.password}}"
-      name="password"
-      class="form-control"
-      id="password"
-    />
-  </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Contraseña</label>
+      <input
+        type="password"
+        value="{{user.password}}"
+        name="password"
+        class="form-control"
+        id="password"
+      />
+    </div>
 
-  <button type="submit" class="btn btn-primary">Guardar cambios</button>
-</form>
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+  </form>
+</div>

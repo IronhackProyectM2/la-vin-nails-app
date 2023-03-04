@@ -13,6 +13,11 @@ module.exports.create = (req, res, next) => {
 };
 
 module.exports.doCreate = (req, res, next) => {
+  function renderWithErrors(errors) {
+    res.redirect('services/list', { errors, date: req.body});
+  }
+
+
   if (req.files) {
     req.body.handState = req.files["handState"][0].path;
     req.body.desiredDesign = req.files["desiredDesign"][0].path;
@@ -23,7 +28,13 @@ module.exports.doCreate = (req, res, next) => {
     .then(() => {
       res.redirect("/");
     })
-    .catch(next);
+    .catch((error) => {
+       if (error instanceof mongoose.Error.ValidationError) {
+        renderWithErrors(error.errors)
+      } else {
+        next(error);
+      }
+    });
 };
 
 module.exports.list = (req, res, next) => {
@@ -99,10 +110,9 @@ module.exports.listPlanning = (req, res, next) => {
     .populate("service")
     .sort({ turn: req.query.sort || "asc" })
     .then((dates) => {
-      console.log(dates);
       res.render("dates/planning", { dates, turns });
     })
     .catch(next);
 };
 
-// req.body.service, req.body.designComments
+

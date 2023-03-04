@@ -7,11 +7,32 @@ module.exports.create = (req, res, next) => {
 };
 
 module.exports.doCreate = (req, res, next) => {
-  User.create(req.body)
-    .then(() => {
-      res.redirect("/login");
+  function renderWithErrors(errors) {
+    res.render('users/new', { errors, user: req.body });
+  }
+
+  delete req.body.role;
+  User.findOne({ email: req.body.email })
+    .then(user => {
+      if (user) {
+        renderWithErrors({ email: 'email already registered' })
+      } else {
+        return User.create(req.body)
+          .then(() => res.redirect('/login'))
+      }
     })
-    .catch();
+    .catch((error) => {
+      if (error instanceof mongoose.Error.ValidationError) {
+        renderWithErrors(error.errors)
+      } else {
+        next(error);
+      }
+    })
+  // User.create(req.body)
+  //   .then(() => {
+  //     res.redirect("/login");
+  //   })
+  //   .catch();
 };
 
 module.exports.login = (req, res, next) => {
