@@ -1,71 +1,115 @@
 <div class="container view mb-3">
   <h1 class="view-title">Mi Perfil</h1>
-  <div class="clearfix">
-    <img
-      class="col-3 bg-light img-perfil"
-      src="/images/imagen.perfil.avif"
-      class="col-md-6 float-md-end mb-3 ms-md-3"
-      alt="Mi Perfil"
-    />
+  <div>
+
+    <button
+      class="btn btn-pink col-12"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseWidthExample"
+      aria-expanded="false"
+      aria-controls="collapseWidthExample"
+    >
+      <h3>Datos personales</h3>
+    </button>
+
+    <div class="collapse" id="collapseWidthExample">
+      <div class="col-sm-9 bg-light p-3 border">
+        <form action="/users/{{user.id}}" method="POST">
+          <div class="input-group mb-4 mt-2">
+            <span class="input-group-text back-icon"><i
+                class="fa fa-user fa-fw"
+              ></i></span>
+            <input
+              type="text"
+              value="{{user.name}}"
+              name="name"
+              class="form-control"
+              id="name"
+            />
+          </div>
+
+          <div class="input-group mb-4"><span
+              class="input-group-text back-icon"
+            ><i class="fa fa-user fa-fw"></i></span>
+            <input
+              type="text"
+              value="{{user.surname}}"
+              name="surname"
+              class="form-control"
+              id="surname"
+            />
+          </div>
+
+          <div class="input-group mb-4">
+            <span class="input-group-text back-icon"><i
+                class="fa fa-mobile fa-fw"
+              ></i></span>
+            <input
+              type="number"
+              value="{{user.phone}}"
+              name="phone"
+              class="form-control"
+              id="phone"
+            />
+          </div>
+
+          <div class="input-group mb-4">
+            <span class="input-group-text back-icon"><i
+                class="fa fa-envelope fa-fw"
+              ></i></span>
+            <input
+              type="email"
+              value="{{user.email}}"
+              name="email"
+              class="form-control"
+              id="email"
+            />
+          </div>
+
+          <div class="input-group mb-4">
+            <span class="input-group-text back-icon"><i
+                class="fa fa-lock fa-fw"
+              ></i></span>
+            <input
+              type="password"
+              value="{{user.password}}"
+              name="password"
+              class="form-control"
+              id="password"
+            />
+          </div>
+          <button class="btn btn-pink col-12">Guardar cambios</button>
+        </form>
+        {{!-- <div>
+          <div>
+            mis Citas:
+            {{#each dates as |date|}}
+              {{#ifDate ../dates user}}
+                <div class="card">
+                <div class="card-header">
+                  <h2 class="card-title">{{date.user.name}}</h2>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-subtitle">Servicio:</h3>
+                  <p class="card-text">{{date.service.name}}</p>
+                </div>
+              </div>
+              {{else}}
+              <div class="card">
+              <div class="card-body">
+                <p class="card-text">No hay citas pendientes</p>
+              </div>          
+              </div>
+              {{/ifDate}}
+            {{/each}}
+          </div> --}}
+        </div>
+      </div>
+    </div>
+
   </div>
-  <div class="col-sm-9 bg-light p-3 border">
-    <form action="/users/{{user.id}}" method="POST">
-      <div class="mb-3">
-        <label for="name" class="form-label">Nombre</label>
-        <input
-          type="text"
-          value="{{user.name}}"
-          name="name"
-          class="form-control"
-          id="name"
-        />
-      </div>
 
-      <div class="mb-3">
-        <label for="surname" class="form-label">Apellido</label>
-        <input
-          type="text"
-          value="{{user.surname}}"
-          name="surname"
-          class="form-control"
-          id="surname"
-        />
-      </div>
-
-      <div class="mb-3">
-        <label for="phone" class="form-label">Teléfono</label>
-        <input
-          type="number"
-          value="{{user.phone}}"
-          name="phone"
-          class="form-control"
-          id="phone"
-        />
-      </div>
-
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input
-          type="email"
-          value="{{user.email}}"
-          name="email"
-          class="form-control"
-          id="email"
-        />
-      </div>
-
-      <div class="mb-3">
-        <label for="password" class="form-label">Contraseña</label>
-        <input
-          type="password"
-          value="{{user.password}}"
-          name="password"
-          class="form-control"
-          id="password"
-        />
-      </div>
-      <button type="submit" class="btn btn-primary">Guardar cambios</button>
-    </form>
-  </div>
+  
 
 </div>

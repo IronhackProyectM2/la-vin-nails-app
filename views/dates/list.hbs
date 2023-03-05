@@ -1,45 +1,72 @@
-<div class=" view">
+<div class="view">
 
   <h1>Citas Solicitadas</h1>
 
+  <div class="card mb-3">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
 
-  <div class="card  mb-3">
-  <div class="card-header">
-    <ul class="nav nav-tabs card-header-tabs">
-      
-      <li class="nav-item">
-        <a class="nav-link {{phathActive currentPath "/dates/list/pending"}}" href="/dates/list/pending">Pendientes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link {{phathActive currentPath "/dates/list/confirmed"}}" aria-current="true" href="/dates/list/confirmed">Confirmadas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link {{phathActive currentPath "/dates/list/confirmedPlanning"}}" aria-current="true" href="/dates/list/confirmedPlanning">Planning</a>
-      </li>
-    </ul>
-    
-  </div>
-  <div class="card-body">
-     {{#each dates as |date|}}
-      <div class="card mb-4">
-        <div class="card-body">
-          <h5 class="card-title mb-3">{{date.service.name}}</h5>
-          <h6 class="d-inline">Día {{date.date}}  | Turno: {{date.turn}}</h6>
-          <h6>Cliente: {{date.user.name}} {{date.user.surname}}</h6>          
-          <p class="card-text"></p>
+        <li class="nav-item">
+          <a
+            class="nav-link {{phathActive currentPath '/dates/list/pending'}}"
+            href="/dates/list/pending"
+          >Pendientes</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link {{phathActive currentPath '/dates/list/confirmed'}}"
+            aria-current="true"
+            href="/dates/list/confirmed"
+          >Confirmadas</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link
+              {{phathActive currentPath '/dates/list/confirmedPlanning'}}"
+            aria-current="true"
+            href="/dates/list/confirmedPlanning"
+          >Planning</a>
+        </li>
+      </ul>
 
-          <div class="accordion mb-3" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{date.id}}" aria-expanded="true" aria-controls="{{date.id}}">
-                  Ver detalles
-                </button>
-              </h2>
-              <div id="{{date.id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  
+    </div>
+    <div class="card-body">
+      {{#each dates as |date|}}
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title mb-3">{{date.service.name}}</h5>
+            <h6 class="d-inline">Día {{date.date}} | Turno: {{date.turn}}</h6>
+            <h6>Cliente: {{date.user.name}} {{date.user.surname}}</h6>
+            <p class="card-text"></p>
+
+            <div class="accordion mb-3" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#{{date.id}}"
+                    aria-expanded="true"
+                    aria-controls="{{date.id}}"
+                  >
+                    Ver detalles
+                  </button>
+                </h2>
+                <div
+                  id="{{date.id}}"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+
                     <h6>Estado de manos:</h6>
-                    <img src="{{date.handState}}" class="card-img-top mb-3" alt="..." />
+                    <img
+                      src="{{date.handState}}"
+                      class="card-img-top mb-3"
+                      alt="..."
+                    />
                     <h6>Diseño deseado:</h6>
                     <img
                       src="{{date.desiredDesign}}"
@@ -48,20 +75,13 @@
                     />
                     <h6>Detalles de diseño: </h6>
                     <p class="card-text">{{date.designDetails}}</p>
-                  
+
+                  </div>
                 </div>
               </div>
-            </div>                       
-          </div>
-          
-            
+            </div>
 
-
-
-
-
-
-          {{!-- <button
+            {{!-- <button
               class="btn btn-primary"
               type="button"
               data-bs-toggle="collapse"
@@ -87,20 +107,24 @@
             </div>
           </div> --}}
 
-          <div class="">
-            <a href="/dates/{{date.id}}/update"
-            class="btn btn-secondary mb-3 d-inline">Editar</a>
-          {{#isPending date}}
-            <a href="/dates/{{date.id}}/confirmation"
-              class="btn btn-success d-inline">Confirmar cita</a>
-          {{/isPending}}
-        </div>
+            <div class="">
+              <a
+                href="/dates/{{date.id}}/update"
+                class="btn btn-pink mb-3 d-inline"
+              >Editar</a>
+              {{#isPending date}}
+                <a
+                  href="/dates/{{date.id}}/confirmation"
+                  class="btn btn-success d-inline"
+                >Confirmar cita</a>
+              {{/isPending}}
+            </div>
           </div>
-          
-      </div>
-    {{/each}}
-    
+
+        </div>
+      {{/each}}
+
+    </div>
   </div>
-</div>
 
 </div>

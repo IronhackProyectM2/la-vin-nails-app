@@ -177,7 +177,7 @@ s .view-container-planning {
   color: white;
   border: 0;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.692);
-  padding: 5px 15px;  
+  padding: 5px 15px;
 }
 
 .img-perfil {
@@ -187,7 +187,7 @@ s .view-container-planning {
 
 .registerText {
   font-size: 0.8rem;
-  line-height : 1rem;
+  line-height: 1rem;
   text-align: center;
 }
 
@@ -195,6 +195,9 @@ s .view-container-planning {
   color: #ed2d6a;
   height: 50px;
 }
+/* .nav-item {
+  background-color: #ed2d6a;
+} */
 
 /* verde #008471
 Magenta #ED2D6A
