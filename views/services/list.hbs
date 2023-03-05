@@ -22,10 +22,18 @@
           />
         </div>        
           <div class="card-body">
-            <h6 class="card-title">{{service.name}}</h6>
+            <h2 class="card-title">{{service.name}}</h2>
             <p class="card-text">{{service.description}}</p>
+            <h6>Puedes optar por terminaciones:</h6>
+            <ul>
+              {{#each service.type as |type|}}
+                <li>{{type}}</li>
+              {{/each}}
+            </ul>
+            <h2>Desde €{{service.price}} </h2>
+            
             <a href="/services/{{service.id}}/schedule"
-              class="btn btn-dor col-12"
+              class="btn btn-dor col-12 mt-3"
             >Solicitar cita</a>
           </div>    
 

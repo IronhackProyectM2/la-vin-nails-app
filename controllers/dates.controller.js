@@ -17,11 +17,11 @@ module.exports.doCreate = (req, res, next) => {
     res.redirect('services/list', { errors, date: req.body});
   }
 
-
   if (req.files) {
     req.body.handState = req.files["handState"][0].path;
     req.body.desiredDesign = req.files["desiredDesign"][0].path;
   }
+  
   req.body.user = req.user.id;
   req.body.service = req.params.id;
   Date.create(req.body)

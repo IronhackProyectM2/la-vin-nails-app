@@ -23,12 +23,14 @@
     <div class="card mb-3">
       <div class="card-body">
         <h5>Elegiste "{{service.name}}"</h5>
+        <p>Precio desde €{{service.price}} a confirmar.</p>
         <label for="type" class="form-label">Selecciona un tipo de terminación.</label>
         <select id="type" name="type" class="form-control">
           {{#each service.type as |type|}}
             <option id="{{type}}" value="{{type}}">{{type}}</option>
           {{/each}}
         </select>
+        <input type="text"  value="{{service.price}}" name="price" id="price" class="form-control invisible price">
       </div>
     </div>
   
@@ -79,15 +81,15 @@
         {{#if error.turn}}<div class="invalid-feedback">{{errors.turn}}</div>{{/if}}      
       </div>  
     </div>
-    <div class="center">
-      <button type="submit" class="btn btn-dark">Solicitar cita</button>
+    <div class="text-center">
+      <button type="submit" class="btn btn-dor col-12 ">Solicitar tu cita</button>
     </div>
 
 
   </form>
 </div>
 
-<a href="/services/list" class="btn btn-primary">Volver atrás</a>
+<a href="/services/list" class="btn btn-green col-12">Volver atrás</a>
 
 
 </div>

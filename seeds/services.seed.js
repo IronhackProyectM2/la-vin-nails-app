@@ -10,6 +10,7 @@ const services = [
     image:
       "https://manicuraperfecta.es/1441-home_default/128-esmalte-semipermanente-semilac-pink-marshmallow-7ml.webp",
     description: "Duración 20 días",
+    price: 10,
   },
   {
     name: "Uñas acrílicas",
@@ -21,6 +22,7 @@ const services = [
     image:
       "https://www.maquillalia.com/images/productos/claresa-esmalte-semipermanente-soak-off-marshmallow-09-2-69380.jpeg",
     description: "Duración 20 días",
+    price: 25,
   },
   {
     name: "Uñas de gel",
@@ -32,6 +34,7 @@ const services = [
     image:
       "https://www.maquillalia.com/images/productos/claresa-esmalte-semipermanente-soak-off-marshmallow-10-2-69381.jpeg",
     description: "Duración 20 días",
+    price: 25,
   },
 ];
 

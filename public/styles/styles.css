@@ -195,6 +195,13 @@ s .view-container-planning {
   color: #ed2d6a;
   height: 50px;
 }
+
+.price {
+  height: 1px;
+}
+
+
+
 /* .nav-item {
   background-color: #ed2d6a;
 } */

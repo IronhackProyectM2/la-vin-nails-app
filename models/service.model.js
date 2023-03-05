@@ -16,6 +16,9 @@ const serviceSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  price: {
+    type: Number,
+  },
 });
 
 const Service = mongoose.model("Service", serviceSchema);
