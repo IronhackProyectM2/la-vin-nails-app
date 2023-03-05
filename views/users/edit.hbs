@@ -1,115 +1,113 @@
 <div class="container view mb-3">
   <h1 class="view-title">Mi Perfil</h1>
+  <div class="card mb-4">
+    <div class="card-header">
+      <h1 class="view-title"><strong>Datos personales:</strong>
+    </strong></h1>
+    </div>
+    <div class="card-body">
+      <form action="/users/{{user.id}}" method="POST">
+      <div class="input-group mb-4 mt-2">
+        <span class="input-group-text back-icon"><i
+            class="fa fa-user fa-fw"
+          ></i></span>
+        <input
+          type="text"
+          value="{{user.name}}"
+          name="name"
+          class="form-control"
+          id="name"
+        />
+      </div>
+
+      <div class="input-group mb-4"><span class="input-group-text back-icon"><i
+            class="fa fa-user fa-fw"
+          ></i></span>
+        <input
+          type="text"
+          value="{{user.surname}}"
+          name="surname"
+          class="form-control"
+          id="surname"
+        />
+      </div>
+
+      <div class="input-group mb-4">
+        <span class="input-group-text back-icon"><i
+            class="fa fa-mobile fa-fw"
+          ></i></span>
+        <input
+          type="number"
+          value="{{user.phone}}"
+          name="phone"
+          class="form-control"
+          id="phone"
+        />
+      </div>
+
+      <div class="input-group mb-4">
+        <span class="input-group-text back-icon"><i
+            class="fa fa-envelope fa-fw"
+          ></i></span>
+        <input
+          type="email"
+          value="{{user.email}}"
+          name="email"
+          class="form-control"
+          id="email"
+        />
+      </div>
+
+      <div class="input-group mb-4">
+        <span class="input-group-text back-icon"><i
+            class="fa fa-lock fa-fw"
+          ></i></span>
+        <input
+          type="password"
+          value="{{user.password}}"
+          name="password"
+          class="form-control"
+          id="password"
+        />
+      </div>
+      <button class="btn btn-pink col-12">Guardar cambios</button>
+    </form>
+
+    </div>
+  </div>
+
   <div>
 
-    <button
-      class="btn btn-pink col-12"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapseWidthExample"
-      aria-expanded="false"
-      aria-controls="collapseWidthExample"
-    >
-      <h3>Datos personales</h3>
-    </button>
-
-    <div class="collapse" id="collapseWidthExample">
-      <div class="col-sm-9 bg-light p-3 border">
-        <form action="/users/{{user.id}}" method="POST">
-          <div class="input-group mb-4 mt-2">
-            <span class="input-group-text back-icon"><i
-                class="fa fa-user fa-fw"
-              ></i></span>
-            <input
-              type="text"
-              value="{{user.name}}"
-              name="name"
-              class="form-control"
-              id="name"
-            />
-          </div>
-
-          <div class="input-group mb-4"><span
-              class="input-group-text back-icon"
-            ><i class="fa fa-user fa-fw"></i></span>
-            <input
-              type="text"
-              value="{{user.surname}}"
-              name="surname"
-              class="form-control"
-              id="surname"
-            />
-          </div>
-
-          <div class="input-group mb-4">
-            <span class="input-group-text back-icon"><i
-                class="fa fa-mobile fa-fw"
-              ></i></span>
-            <input
-              type="number"
-              value="{{user.phone}}"
-              name="phone"
-              class="form-control"
-              id="phone"
-            />
-          </div>
-
-          <div class="input-group mb-4">
-            <span class="input-group-text back-icon"><i
-                class="fa fa-envelope fa-fw"
-              ></i></span>
-            <input
-              type="email"
-              value="{{user.email}}"
-              name="email"
-              class="form-control"
-              id="email"
-            />
-          </div>
-
-          <div class="input-group mb-4">
-            <span class="input-group-text back-icon"><i
-                class="fa fa-lock fa-fw"
-              ></i></span>
-            <input
-              type="password"
-              value="{{user.password}}"
-              name="password"
-              class="form-control"
-              id="password"
-            />
-          </div>
-          <button class="btn btn-pink col-12">Guardar cambios</button>
-        </form>
-        {{!-- <div>
-          <div>
-            mis Citas:
-            {{#each dates as |date|}}
-              {{#ifDate ../dates user}}
-                <div class="card">
-                <div class="card-header">
-                  <h2 class="card-title">{{date.user.name}}</h2>
-                </div>
-                <div class="card-body">
-                  <h3 class="card-subtitle">Servicio:</h3>
-                  <p class="card-text">{{date.service.name}}</p>
-                </div>
-              </div>
-              {{else}}
-              <div class="card">
-              <div class="card-body">
-                <p class="card-text">No hay citas pendientes</p>
-              </div>          
-              </div>
-              {{/ifDate}}
-            {{/each}}
-          </div> --}}
+    <div class="card">
+      <div class="card-header">
+          <h1 class="view-title"><strong>Mis citas:</strong>
+        </strong></h1>
         </div>
+      <div class="card-body text-center">
+              {{#each dates as |date|}}
+                {{#ifDate ../user date}}
+                  <div class="card">
+                  <div class="card-header">
+                    <h2 class="card-title">{{date.user.name}}</h2>
+                  </div>
+                  <div class="card-body">
+                    <h3 class="card-subtitle">Servicio:</h3>
+                    <p class="card-text">{{date.service.name}}</p>
+                  </div>
+                </div>
+                {{else}}
+                <div class="card">
+                  <div class="card-body">
+                    <p class="card-text">No hay citas pendientes</p>
+                  </div>          
+                </div>
+                {{/ifDate}}
+            {{/each}}
+          
       </div>
+
     </div>
 
   </div>
-
-  
 
 </div>

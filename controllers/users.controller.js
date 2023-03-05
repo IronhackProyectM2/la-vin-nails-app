@@ -53,14 +53,22 @@ module.exports.doLogin = (req, res, next) => {
 };
 
 module.exports.update = (req, res, next) => {
-  User.findById(req.params.id)
-    .then((user) => {
-      // Date.findById().then((dates) => {
-      res.render("users/edit", { user /*, dates*/ });
-      // });
+  Date.find()
+    .then((dates) => {
+      User.findById(req.params.id).then((user) => {
+        res.render("users/edit", { user, dates });
+      });
     })
     .catch(next);
 };
+//   User.findById(req.params.id)
+//     .then((user) => {
+//       Date.find().then((dates) => {
+//         res.render("users/edit", { user, dates });
+//       });
+//     })
+//     .catch(next);
+// };
 
 module.exports.doUpdate = (req, res, next) => {
   User.findByIdAndUpdate(req.params.id, req.body, { runValidators: true })
@@ -72,10 +80,6 @@ module.exports.doUpdate = (req, res, next) => {
       next(err);
     });
 };
-
-
-
-
 
 module.exports.logout = (req, res, next) => {
   req.session.destroy();

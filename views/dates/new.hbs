@@ -1,122 +1,157 @@
 <div class="container view">
 
-<div class="mb-4">
-  <h1>Completa el forulario para solicitar tu cita</h1>
-</div>
+  <div class="mb-4">
+    <h1 class="view-title">Completa el formulario para solicitar tu cita</h1>
+  </div>
 
-<div>
-  <form action="/dates/{{service.id}}/new" method="POST" enctype="multipart/form-data" name="cita">
+  <div>
+    <form
+      action="/dates/{{service.id}}/new"
+      method="POST"
+      enctype="multipart/form-data"
+      name="cita"
+    >
 
-    <div class="card mb-3">
-      
+      <div class="card mb-3">
+
         <div class="card-body">
           <h5 class="card-title">¿Como se encuentran tus manos?</h5>
-          <p class="card-text">Sube una foto donde podamos ver el estado de tus uñas y mano en general.</p>
-          <div class="input-group ">
-            <span class="input-group-text back-icon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
-            <input type="file" name="handState" class="form-control" id="handState" />
-            {{#if error.handState}}<div class="invalid-feedback">{{errors.handState}}</div>{{/if}}
-          </div>    
+          <p class="card-text">Sube una foto donde podamos ver el estado de tus
+            uñas y mano en general.</p>
+          <div class="input-group mb-4">
+            <span class="input-group-text back-icon"><i
+                class="fa fa-image fa-fw"
+              ></i></span>
+            <input
+              type="file"
+              name="handState"
+              class="form-control"
+              id="handState"
+            />
+            {{#if error.handState}}<div
+                class="invalid-feedback"
+              >{{errors.handState}}</div>{{/if}}
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="card mb-3">
-      <div class="card-body">
-        <h5>Elegiste "{{service.name}}"</h5>
-        <p>Precio desde €{{service.price}} a confirmar.</p>
-        <label for="type" class="form-label">Selecciona un tipo de terminación.</label>
-        <span class="input-group-text back-icon"><i class="fa fa-tint" aria-hidden="true"></i></span>
-        <select id="type" name="type" class="form-control">
-          {{#each service.type as |type|}}
-            <option id="{{type}}" value="{{type}}">{{type}}</option>
-          {{/each}}
-        </select>
-        <input type="text"  value="{{service.price}}" name="price" id="price" class="form-control invisible price">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Elegiste "{{service.name}}"</h5>
+          <p class="card-text">Precio desde €{{service.price}} a confirmar.</p>
+          <label for="type" class="form-label">Selecciona un tipo de
+            terminación.</label>
+          <div class="input-group mb-4">
+            <span class="input-group-text back-icon"><i
+                class="fa fa-tint"
+                aria-hidden="true"
+              ></i></span>
+            <select id="type" name="type" class="form-control">
+              {{#each service.type as |type|}}
+                <option id="{{type}}" value="{{type}}">{{type}}</option>
+              {{/each}}
+            </select>
+          </div>
+          <input
+            type="text"
+            value="{{service.price}}"
+            name="price"
+            id="price"
+            class="form-control invisible price"
+          />
+        </div>
       </div>
-    </div>
-  
 
-    <div class="card mb-3">
+      <div class="card mb-3">
         <div class="card-body">
           <h5 class="card-title">¿Como te gustaría verlas?</h5>
-          <p class="card-text">Sube una foto de como deseas el diseño para tus uñas.</p>
-        <div class="input-group">
-          <span class="input-group-text back-icon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
-          <input type="file" name="desiredDesign" class="form-control" id="desiredDesign"/>
-          {{#if error.desiredDesign}}<div class="invalid-feedback">{{errors.desiredDesign}}</div>{{/if}}
-        </div>    
+          <p class="card-text">Sube una foto de como deseas el diseño para tus
+            uñas.</p>
+          <div class="input-group">
+            <span class="input-group-text back-icon"><i
+                class="fa fa-image fa-fw"
+              ></i></span>
+            <input
+              type="file"
+              name="desiredDesign"
+              class="form-control"
+              id="desiredDesign"
+            />
+            {{#if error.desiredDesign}}<div
+                class="invalid-feedback"
+              >{{errors.desiredDesign}}</div>{{/if}}
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="card mb-3">
+      <div class="card mb-3">
         <div class="card-body">
           <h5 class="card-title">Más detalles..</h5>
-          <p class="card-text">Comentanos los detalles sobre el diseño que deseas, o lo que consideres necesario informarnos.</p>
-        <div class="input-group">
-          <textarea name="designDetails" class="form-control" type="designDetails"></textarea>        
-        </div>    
-      </div>
-    </div>
-
-    <div class="card mb-3">
-      <div class="card-body">
-        <h5 class="card-title">¿Que día quieres agendar?</h5>
-        <div class="mb-3">
-          <label for="date" class="form-label">Seleccióna para ver los turnos disponibles.</label>
-          <input type="date" name="date" class="form-control" id="date" />
-          {{#if error.date}}<div class="invalid-feedback">{{errors.date}}</div>{{/if}}
+          <p class="card-text">Comentanos los detalles sobre el diseño que
+            deseas, o lo que consideres necesario informarnos.</p>
+          <div class="input-group">
+            <textarea
+              name="designDetails"
+              class="form-control"
+              type="designDetails"
+            ></textarea>
+          </div>
         </div>
-        <label for="turn" class="form-label">Selecciona turno</label>
-        <select id="turn" name="turn" class="form-control">
-          <option value="mañana" disabled>Por la mañana</option>
-          <option  value="1">10 a 11 hs.</option>
-          <option value="2">11 a 12 hs.</option>
-          <option value="3">12 a 13 hs.</option>
-          <option value="mañana" disabled>Por la tarde</option>
-          <option value="4">16 a 17 hs.</option>
-          <option value="5">17 a 18 hs.</option>
-          <option value="6">18 a 19 hs.</option>
-          <option value="7">19 a 20 hs.</option>
-          <option value="8">20 a 21 hs.</option>
-        </select>
-        {{#if error.turn}}<div class="invalid-feedback">{{errors.turn}}</div>{{/if}}      
-      </div>  
-    </div>
-    <div class="text-center">
-      <button type="submit" class="btn btn-dor col-12 ">Solicitar tu cita</button>
-    </div>
+      </div>
 
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">¿Que día quieres agendar?</h5>
+          <div class="mb-3">
+            <label for="date" class="form-label">Seleccióna para ver los turnos
+              disponibles.</label>
+            <input type="date" name="date" class="form-control" id="date" />
+            {{#if error.date}}<div
+                class="invalid-feedback"
+              >{{errors.date}}</div>{{/if}}
+          </div>
+          <label for="turn" class="form-label">Selecciona turno</label>
+          <select id="turn" name="turn" class="form-control">
+            <option value="mañana" disabled>Por la mañana</option>
+            <option value="1">10 a 11 hs.</option>
+            <option value="2">11 a 12 hs.</option>
+            <option value="3">12 a 13 hs.</option>
+            <option value="mañana" disabled>Por la tarde</option>
+            <option value="4">16 a 17 hs.</option>
+            <option value="5">17 a 18 hs.</option>
+            <option value="6">18 a 19 hs.</option>
+            <option value="7">19 a 20 hs.</option>
+            <option value="8">20 a 21 hs.</option>
+          </select>
+          {{#if error.turn}}<div
+              class="invalid-feedback"
+            >{{errors.turn}}</div>{{/if}}
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-dor col-12">Solicitar tu cita</button>
+      </div>
 
-  </form>
-</div>
+    </form>
+  </div>
 
-<a href="/services/list" class="btn btn-green col-12">Volver atrás</a>
-
+  <a href="/services/list" class="btn btn-green col-12">Volver atrás</a>
 
 </div>
 
 <script>
-  const dates = {{{dates}}}
+  const dates =
+  {{{dates}}}
   const selectedDate = document.getElementById("date")
-  selectedDate.addEventListener('change', function(event){
-    const selected = event.target.value
-    const dayDates = dates.filter(x => x.date === selected)
-    
-    document.querySelectorAll(`option`).forEach( x => {
-      x.removeAttribute("disabled")
-      })
-
-    dayDates.forEach(date => {      
-      document.querySelector(`option[value='${date.turn}']`).setAttribute("disabled", true)
-    })
-  })
+  selectedDate.addEventListener('change', function(event){ const selected =
+  event.target.value const dayDates = dates.filter(x => x.date === selected)
+  document.querySelectorAll(`option`).forEach( x => {
+  x.removeAttribute("disabled") }) dayDates.forEach(date => {
+  document.querySelector(`option[value='${date.turn}']`).setAttribute("disabled",
+  true) }) })
 </script>
-
-
 
 <script>
-  const dateInput = document.getElementById('date');
-  const currentDate = new Date().toISOString().split('T')[0];
-  dateInput.min = currentDate;
+  const dateInput = document.getElementById('date'); const currentDate = new
+  Date().toISOString().split('T')[0]; dateInput.min = currentDate;
 </script>
-

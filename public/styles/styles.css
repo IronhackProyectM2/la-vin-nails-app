@@ -113,6 +113,12 @@ h1 {
   font-size: 300px;
   color: #ed2d6a;
 }
+
+.card-title {
+  color: #ed2d6a;
+  font-weight: bold;
+}
+
 .view-title-ser {
   font-size: 1em;
   color: #008471;
@@ -200,7 +206,9 @@ s .view-container-planning {
   height: 1px;
 }
 
-
+.card-text {
+  color: #ec4c7ff3;
+}
 
 /* .nav-item {
   background-color: #ed2d6a;
