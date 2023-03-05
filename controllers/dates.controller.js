@@ -81,15 +81,18 @@ module.exports.confirmation = (req, res, next) => {
 };
 
 module.exports.update = (req, res, next) => {
-  Date.findById(req.params.id)
-    .populate("user")
-    .populate("service")
-    .then((date) => {
-      Date.find().then((dates) => {
-        res.render("dates/edit", { date, dates: JSON.stringify(dates) });
-      });
-    })
-    .catch(next);
+  Service.find()
+    .then((services) => {
+      Date.findById(req.params.id)
+        .populate("user")
+        .populate("service")
+        .then((date) => {
+          Date.find().then((dates) => {
+            res.render("dates/edit", { services, date, dates: JSON.stringify(dates) });
+          });
+        })
+  })
+  .catch(next);
 };
 
 module.exports.listPlanning = (req, res, next) => {
@@ -111,6 +114,14 @@ module.exports.listPlanning = (req, res, next) => {
     .sort({ turn: req.query.sort || "asc" })
     .then((dates) => {
       res.render("dates/planning", { dates, turns });
+    })
+    .catch(next);
+};
+
+module.exports.doUpdate = (req, res, next) => {
+  Date.findByIdAndUpdate(req.params.id, req.body)
+    .then((date) => {
+      res.redirect("/dates/list/pending");
     })
     .catch(next);
 };

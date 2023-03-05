@@ -62,6 +62,21 @@ module.exports.update = (req, res, next) => {
     .catch(next);
 };
 
+module.exports.doUpdate = (req, res, next) => {
+  User.findByIdAndUpdate(req.params.id, req.body, { runValidators: true })
+    .then((user) => {
+      res.redirect("/services/list");
+    })
+    .catch((err) => {
+      // TODO
+      next(err);
+    });
+};
+
+
+
+
+
 module.exports.logout = (req, res, next) => {
   req.session.destroy();
   req.session = null;

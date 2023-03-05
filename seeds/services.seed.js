@@ -2,10 +2,10 @@ const services = [
   {
     name: "Esmalte semipermanente",
     type: [
-      "Liso de uno o varios colores",
-      "Francesitas",
-      "Diseño a mano alzada(por uña)",
-      "Pegatinas",
+      "liso de uno o varios colores",
+      "francesitas",
+      "diseño a mano alzada (€1 por uña)",
+      "pegatinas",
     ],
     image:
       "https://manicuraperfecta.es/1441-home_default/128-esmalte-semipermanente-semilac-pink-marshmallow-7ml.webp",
@@ -15,9 +15,9 @@ const services = [
   {
     name: "Uñas acrílicas",
     type: [
-      "Con esmalte liso",
-      "Con decoración simple",
-      "Con decoración especial/Francesitas",
+      "con esmalte liso",
+      "con decoración simple",
+      "con decoración especial/Francesitas",
     ],
     image:
       "https://www.maquillalia.com/images/productos/claresa-esmalte-semipermanente-soak-off-marshmallow-09-2-69380.jpeg",
@@ -27,9 +27,9 @@ const services = [
   {
     name: "Uñas de gel",
     type: [
-      "Con esmalte liso",
-      "Con decoración simple",
-      "Con decoración especial/Francesitas",
+      "con esmalte liso",
+      "con decoración simple",
+      "con decoración especial/Francesitas",
     ],
     image:
       "https://www.maquillalia.com/images/productos/claresa-esmalte-semipermanente-soak-off-marshmallow-10-2-69381.jpeg",

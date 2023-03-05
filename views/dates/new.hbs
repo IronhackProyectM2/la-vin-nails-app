@@ -13,7 +13,7 @@
           <h5 class="card-title">¿Como se encuentran tus manos?</h5>
           <p class="card-text">Sube una foto donde podamos ver el estado de tus uñas y mano en general.</p>
           <div class="input-group ">
-            <label class="input-group-text" for="handState"><i class="fas fa-user text-success"></i></label>
+            <span class="input-group-text back-icon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
             <input type="file" name="handState" class="form-control" id="handState" />
             {{#if error.handState}}<div class="invalid-feedback">{{errors.handState}}</div>{{/if}}
           </div>    
@@ -25,6 +25,7 @@
         <h5>Elegiste "{{service.name}}"</h5>
         <p>Precio desde €{{service.price}} a confirmar.</p>
         <label for="type" class="form-label">Selecciona un tipo de terminación.</label>
+        <span class="input-group-text back-icon"><i class="fa fa-tint" aria-hidden="true"></i></span>
         <select id="type" name="type" class="form-control">
           {{#each service.type as |type|}}
             <option id="{{type}}" value="{{type}}">{{type}}</option>
@@ -40,7 +41,7 @@
           <h5 class="card-title">¿Como te gustaría verlas?</h5>
           <p class="card-text">Sube una foto de como deseas el diseño para tus uñas.</p>
         <div class="input-group">
-          <label class="input-group-text" for="desiredDesign"><i class="fa fa-picture-o"></i></label>
+          <span class="input-group-text back-icon"><i class="fa fa-picture-o" aria-hidden="true"></i></span>
           <input type="file" name="desiredDesign" class="form-control" id="desiredDesign"/>
           {{#if error.desiredDesign}}<div class="invalid-feedback">{{errors.desiredDesign}}</div>{{/if}}
         </div>    
