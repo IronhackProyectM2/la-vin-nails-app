@@ -3,9 +3,9 @@
 
   <div class="form-container-planning">
     <form action="/dates/list/confirmedPlanning" method="get">
-      <label for="fecha" class="form-label-planning">Selecciona la fecha:</label>
+      <label for="fecha" class="form-label-planning"><stron>Selecciona:</stron></label>
       <input type="date" id="fecha" name="fecha" class="form-input" />
-      <button type="submit" class="form-button">Buscar</button>
+      <button type="submit" class="btn btn-pink">Buscar</button>
     </form>
   </div>
 
@@ -16,21 +16,44 @@
           {{#each ../dates as | date |}}
             {{#ifTurns date turn}}
               <div class="card">
-                <div class="card-header">
-                  <h2 class="card-title">{{date.user.name}}</h2>
-                </div>
-                <div class="card-body">
-                  <h3 class="card-subtitle">Servicio:</h3>
-                  <p class="card-text">{{date.service.name}}</p>
-                </div>
+                <div class="card body">
+                  <div class="row">
+                    <div class="col">
+                      <div class="card body">
+                        <h6 class="card-text-plannig text-center"> | TURNO: {{turn}} |</h6>
+                      </div>   
+                    </div> 
+                    <div class="row">
+                      <div class="card-body">
+                        <h2 class="card-title">{{date.user.name}}</h2>
+                        <h3 class="card-subtitle">Servicio:</h3>
+                        <p class="card-text">{{date.service.name}}</p>
+                      </div>
+                    </div> 
+                    <div class="linea-vertical"></div>           
+                  </div>
+                </div>         
               </div>
             {{/ifTurns}}
           {{/each}}        
         {{else}}
           <div class="card">
-            <div class="card-body">
-              <p class="card-text">No hay citas confirmadas en el turno {{turn}}</p>
-            </div>          
+            <div class="card-body ">
+              <div class="row">
+                <div class="col">
+                  <div class="card body">
+                    <h6 class="card-text-plannig text-center"> | TURNO: {{turn}} |</h6>
+                  </div>                  
+                </div>
+                
+                <div class="col">
+                  <div class="card body">
+                    <p class="card-text text-center">No hay citas confirmadas</p>
+                  </div>                   
+                </div>
+                <div class="linea-vertical"></div>
+              </div>
+            </div> 
           </div>
         {{/dateInTurn}}
       </div>
