@@ -137,12 +137,14 @@ h1 {
   background-color: #ed2d6a;
   font-weight: bold;
   color: white;
+  font-size: 1.2rem;
 }
 
 .btn.btn-green {
   background-color: #008471;
   font-weight: bold;
   color: white;
+  font-size: 1.2rem;
 }
 
 .btn.btn-dor {
@@ -194,6 +196,10 @@ h1 {
   border-left: 1px solid #ccc;
   height: 100%;
   margin-left: -;
+}
+
+.view-details {
+  height: 40px;
 }
 
 /* .nav-item {

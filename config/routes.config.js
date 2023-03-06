@@ -36,5 +36,6 @@ router.get("/dates/list/confirmedPlanning", secure.checkRole("admin"), dates.lis
 router.get("/dates/:id/confirmation", secure.checkRole("admin"), dates.confirmation);
 router.get("/dates/:id/update", secure.checkRole("admin"), dates.update);
 router.post("/dates/:id", secure.checkRole("admin"), dates.doUpdate);
+router.get("/dates/:id/delet", secure.isAuthenticated, dates.delete );
 
 module.exports = router;

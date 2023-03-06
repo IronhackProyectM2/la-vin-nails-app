@@ -126,4 +126,18 @@ module.exports.doUpdate = (req, res, next) => {
     .catch(next);
 };
 
+module.exports.delete = (req, res, next) => {
+  Date.findById(req.params.id)
+    .then(date => {
+      if (!date) {
+        res.redirect("/dates/list/pending")
+      } else {
+        date.delete()
+          .then(() => res.redirect("/dates/list/pending"))
+          .catch(next)
+      }
+    })
+    .catch(next);
+};
+
 
