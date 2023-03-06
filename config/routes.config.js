@@ -11,6 +11,8 @@ const router = express.Router();
 
 //FOR Common controller:
 router.get("/", common.home);
+router.get("/contact", common.contact);
+
 
 //For user controller:
 //Login:
