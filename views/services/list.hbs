@@ -1,12 +1,10 @@
 <div class="display-2 fw-bold text-black mb-4">
-  <h1 class="view-title-ser"><strong>Servicios disponibles</strong></h1>
+  <h1 class="view-title"><strong>Servicios disponibles</strong></h1>
 </div>
 
 <hr />
 
-
-
-<div class="card-container-services">
+<div class="card-container-services mt-4">
   {{#each services as |service|}}
     <div
       class="card mb-3 shadow-lg p-3 m-2 bg-body-tertiary rounded"
@@ -22,7 +20,7 @@
           />
         </div>        
           <div class="card-body">
-            <h2 class="card-title">{{service.name}}</h2>
+            <h3 class="card-title">{{service.name}}</h3>
             <p class="card-text">{{service.description}}</p>
             <h6>Puedes optar por terminaciones:</h6>
             <ul>
