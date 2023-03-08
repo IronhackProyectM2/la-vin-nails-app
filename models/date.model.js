@@ -8,10 +8,10 @@ const dateSchema = new mongoose.Schema(
     },
     service: {
       type: mongoose.Schema.Types.ObjectId,
-      ref:"Service",
+      ref: "Service",
       required: [true, "Seleccione un servicio"],
     },
-    type : {
+    type: {
       type: String,
       required: [true, "Seleccione un tipo de servicio"],
     },
@@ -26,7 +26,7 @@ const dateSchema = new mongoose.Schema(
       type: String,
       required: [true, "Son necesarios los detalles"],
       maxLength: [300, "max 300 chars."],
-    },    
+    },
     date: {
       type: String,
       required: [true, "Es necesario seleccionar un día"],
@@ -44,6 +44,10 @@ const dateSchema = new mongoose.Schema(
       type: String,
       enum: ["Pendiente", "Confirmada", "Rechazada"],
       default: "Pendiente",
+    },
+    email: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
     },
   },
   { timestamps: true }

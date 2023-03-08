@@ -17,20 +17,20 @@
             {{#ifTurns date turn}}
               <div class="card">
                 <div class="card body">
-                  <div class="row">
-                    <div class="col">
-                      <div class="card body">
+                  <div class="row align-items-center">
+                    <div class="col ">
+                      <div class="card body ">
                         <h6 class="card-text-plannig text-center"> | TURNO: {{turn}} |</h6>
                       </div>   
                     </div> 
-                    <div class="row">
-                      <div class="card-body">
-                        <h2 class="card-title">{{date.user.name}}</h2>
-                        <h3 class="card-subtitle">Servicio:</h3>
-                        <p class="card-text">{{date.service.name}}</p>
+
+                    <div class="col d-flex justify-content-center">
+                      <div class="card-body align-items-center">
+                        <h5 class="card-title text-center">{{date.user.name}}</h5>
+                        <h6 class="card-subtitle text-center">Servicio:</h6>
+                        <p class="card-text text-center ">{{date.service.name}}</p>
                       </div>
-                    </div> 
-                    <div class="linea-vertical"></div>           
+                    </div>        
                   </div>
                 </div>         
               </div>
@@ -38,8 +38,8 @@
           {{/each}}        
         {{else}}
           <div class="card">
-            <div class="card-body ">
-              <div class="row">
+            <div class="card-body">
+              <div class="row align-items-center">
                 <div class="col">
                   <div class="card body">
                     <h6 class="card-text-plannig text-center"> | TURNO: {{turn}} |</h6>
@@ -47,7 +47,7 @@
                 </div>
                 
                 <div class="col">
-                  <div class="card body">
+                  <div class="card body align-items-center">
                     <p class="card-text text-center">No hay citas confirmadas</p>
                   </div>                   
                 </div>

@@ -2,7 +2,6 @@ const hbs = require("hbs");
 
 hbs.registerPartials(`${__dirname}/../views/partials`);
 
-
 hbs.registerHelper("phathActive", (currentPath, desiredPath) => {
   return currentPath === desiredPath ? "active" : "";
 });
@@ -42,7 +41,6 @@ hbs.registerHelper("isAuthenticated", (currentUser, options) => {
 
 hbs.registerHelper("dateInTurn", function (dates, turn, options) {
   const turns = dates.map((x) => x.turn);
-  console.log(turns);
 
   if (turns.includes(turn)) {
     return options.fn(this);
@@ -59,10 +57,10 @@ hbs.registerHelper("ifTurns", (date, turn, options) => {
   }
 });
 
-hbs.registerHelper("ifDate", (date, user, options) => {
-  if (date.user === user.id) {
+hbs.registerHelper("isOwnedBy", (dates, user, options) => {
+  if (dates.user === user.id) {
     return options.fn();
   } else {
-    return options.inverse();
+    return options.inverse();s
   }
 });

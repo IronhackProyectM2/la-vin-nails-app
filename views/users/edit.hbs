@@ -82,39 +82,8 @@
   </div>
 
   <div>
-
-    <div class="card">
-      <div class="card-header">
-          <h1 class="view-title"><strong>Mis citas:</strong>
-        </strong></h1>
-        </div>
-      <div class="card-body text-center">
-              {{#each users as |user|}}
-                {{#ifDate ../users date}}
-                  {{#each ../dates as |date|}}
-                    <div class="card">
-                      <div class="card-header">
-                        <h2 class="card-title">{{date.user.name}}</h2>
-                      </div>
-                      <div class="card-body">
-                        <h3 class="card-subtitle">Servicio:</h3>
-                        <p class="card-text">{{date.service.name}}</p>
-                      </div>
-                    </div>
-                  {{/each}}
-                {{else}}
-                <div class="card">
-                  <div class="card-body">
-                    <p class="card-text">No hay citas pendientes</p>
-                  </div>          
-                </div>
-                {{/ifDate}}
-            {{/each}}
-          
+    
+      <div class="card">
+        <a  class="btn btn-pink" href="dates/list/user"><h1><strong>Mis citas</strong></h1></a>
       </div>
-
-    </div>
-
-  </div>
-
 </div>
