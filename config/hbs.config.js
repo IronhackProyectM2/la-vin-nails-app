@@ -59,8 +59,8 @@ hbs.registerHelper("ifTurns", (date, turn, options) => {
   }
 });
 
-hbs.registerHelper("ifDate", (date, user, options) => {
-  if (date.user === user.id) {
+hbs.registerHelper("ifDate", (date, currentUser, options) => {
+  if (date.user.id === currentUser.id) {
     return options.fn();
   } else {
     return options.inverse();

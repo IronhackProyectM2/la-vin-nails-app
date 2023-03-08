@@ -54,6 +54,8 @@ module.exports.doLogin = (req, res, next) => {
 
 module.exports.update = (req, res, next) => {
   Date.find()
+    .populate("user")
+    .populate("service")
     .then((dates) => {
       User.findById(req.params.id).then((user) => {
         res.render("users/edit", { user, dates });
@@ -61,9 +63,13 @@ module.exports.update = (req, res, next) => {
     })
     .catch(next);
 };
+
+// module.exports.update = (req, res, next) => {
+//   const userId = req.params.id
 //   User.findById(req.params.id)
 //     .then((user) => {
-//       Date.find().then((dates) => {
+//       console.log(req.params.id)
+//       Date.find(  ).then((dates) => {
 //         res.render("users/edit", { user, dates });
 //       });
 //     })

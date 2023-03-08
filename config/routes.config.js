@@ -39,5 +39,6 @@ router.get("/dates/:id/confirmation", secure.checkRole("admin"), dates.confirmat
 router.get("/dates/:id/update", secure.checkRole("admin"), dates.update);
 router.post("/dates/:id", secure.checkRole("admin"), dates.doUpdate);
 router.get("/dates/:id/delet", secure.isAuthenticated, dates.delete );
+router.get("/dates/:id/deletGuest", secure.isAuthenticated, dates.deleteGuest );
 
 module.exports = router;

@@ -140,4 +140,18 @@ module.exports.delete = (req, res, next) => {
     .catch(next);
 };
 
+module.exports.deleteGuest = (req, res, next) => {
+  Date.findById(req.params.id)
+    .then(date => {
+      if (!date) {
+        res.redirect("/")
+      } else {
+        date.delete()
+          .then(() => res.redirect("/"))
+          .catch(next)
+      }
+    })
+    .catch(next);
+};
+
 
