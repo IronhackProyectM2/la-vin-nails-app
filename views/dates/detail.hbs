@@ -1,0 +1,33 @@
+<div class="view">
+
+  <h1 class="view-title mb-2">Citas Solicitadas</h1>
+
+  <hr />
+
+  
+    <div class="card-body">
+      {{#isOwnedBy dates currentUser}}
+          {{!-- {{#each ../dates as |date|}} --}}
+              <div class="card">
+                <div class="card-header">
+                  <h2 class="card-title">{{date.user.name}}</h2>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-subtitle">Servicio:</h3>
+                    <p class="card-text">{{date.service.name}}</p>
+                </div>
+                </div>
+          {{!-- {{/each}} --}}
+      {{else}}
+         <div class="card">
+            <div class="card-body">
+                <p class="card-text">No hay citas pendientes</p>
+            </div>          
+          </div>
+      {{/isOwnedBy}}
+          
+
+    </div>
+  </div>
+
+</div>

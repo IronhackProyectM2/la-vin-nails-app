@@ -1,6 +1,7 @@
 const Date = require("../models/date.model");
 const Service = require("../models/service.model");
 const mongoose = require("mongoose");
+const User = require("../models/user.model");
 
 module.exports.create = (req, res, next) => {
   Service.findById(req.params.id)
@@ -14,14 +15,14 @@ module.exports.create = (req, res, next) => {
 
 module.exports.doCreate = (req, res, next) => {
   function renderWithErrors(errors) {
-    res.redirect('services/list', { errors, date: req.body});
+    res.redirect("services/list", { errors, date: req.body });
   }
 
   if (req.files) {
     req.body.handState = req.files["handState"][0].path;
     req.body.desiredDesign = req.files["desiredDesign"][0].path;
   }
-  
+
   req.body.user = req.user.id;
   req.body.service = req.params.id;
   Date.create(req.body)
@@ -29,8 +30,8 @@ module.exports.doCreate = (req, res, next) => {
       res.redirect("/");
     })
     .catch((error) => {
-       if (error instanceof mongoose.Error.ValidationError) {
-        renderWithErrors(error.errors)
+      if (error instanceof mongoose.Error.ValidationError) {
+        renderWithErrors(error.errors);
       } else {
         next(error);
       }
@@ -88,25 +89,20 @@ module.exports.update = (req, res, next) => {
         .populate("service")
         .then((date) => {
           Date.find().then((dates) => {
-            res.render("dates/edit", { services, date, dates: JSON.stringify(dates) });
+            res.render("dates/edit", {
+              services,
+              date,
+              dates: JSON.stringify(dates),
+            });
           });
-        })
-  })
-  .catch(next);
+        });
+    })
+    .catch(next);
 };
 
 module.exports.listPlanning = (req, res, next) => {
   const selectDate = req.query.fecha;
-  const turns = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-  ]
+  const turns = [1, 2, 3, 4, 5, 6, 7, 8];
 
   Date.find({ dateState: "Confirmada", date: selectDate })
     .populate("user")
@@ -128,13 +124,14 @@ module.exports.doUpdate = (req, res, next) => {
 
 module.exports.delete = (req, res, next) => {
   Date.findById(req.params.id)
-    .then(date => {
+    .then((date) => {
       if (!date) {
-        res.redirect("/dates/list/pending")
+        res.redirect("/dates/list/pending");
       } else {
-        date.delete()
+        date
+          .delete()
           .then(() => res.redirect("/dates/list/pending"))
-          .catch(next)
+          .catch(next);
       }
     })
     .catch(next);
@@ -155,3 +152,4 @@ module.exports.deleteGuest = (req, res, next) => {
 };
 
 
+ 
