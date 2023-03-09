@@ -22,6 +22,7 @@ router.post("/login", users.doLogin);
 router.get("/users/new", users.create);
 router.post("/users", users.doCreate);
 router.get("/users/:id/update", users.update);
+router.get("/users/:id/datesUser", secure.isAuthenticated, users.updateDates);
 router.get("/logout", users.logout);
 
 //FOR Service controller:
@@ -43,11 +44,6 @@ router.post(
   dates.doCreate
 );
 router.get("/dates/list", secure.checkRole("admin"), dates.list);
-router.get(
-  "/users/:id/dates/list/user",
-  secure.isAuthenticated,
-  dates.listUser
-);
 router.get("/dates/list/pending", secure.checkRole("admin"), dates.listPending);
 router.get(
   "/dates/list/confirmed",
@@ -66,7 +62,7 @@ router.get(
 );
 router.get("/dates/:id/update", secure.checkRole("admin"), dates.update);
 router.post("/dates/:id", secure.checkRole("admin"), dates.doUpdate);
-router.get("/dates/:id/delet", secure.isAuthenticated, dates.delete );
-router.get("/dates/:id/deletGuest", secure.isAuthenticated, dates.deleteGuest );
+router.get("/dates/:id/delet", secure.isAuthenticated, dates.delete);
+router.get("/dates/:id/deletGuest", secure.isAuthenticated, dates.deleteGuest);
 
 module.exports = router;

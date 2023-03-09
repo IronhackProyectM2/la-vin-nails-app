@@ -45,10 +45,6 @@ const dateSchema = new mongoose.Schema(
       enum: ["Pendiente", "Confirmada", "Rechazada"],
       default: "Pendiente",
     },
-    email: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
   },
   { timestamps: true }
 );

@@ -139,17 +139,17 @@ module.exports.delete = (req, res, next) => {
 
 module.exports.deleteGuest = (req, res, next) => {
   Date.findById(req.params.id)
-    .then(date => {
+    .then((date) => {
       if (!date) {
-        res.redirect("/")
+        res.redirect("/");
       } else {
-        date.delete()
+        date
+          .delete()
           .then(() => res.redirect("/"))
-          .catch(next)
+          .catch(next);
       }
     })
     .catch(next);
 };
 
 
- 

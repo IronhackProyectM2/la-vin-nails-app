@@ -53,28 +53,16 @@ module.exports.doLogin = (req, res, next) => {
 };
 
 module.exports.update = (req, res, next) => {
-  Date.find()
-    .populate("user")
-    .populate("service")
-    .then((dates) => {
-      User.findById(req.params.id).then((user) => {
-        res.render("users/edit", { user, dates });
-      });
-    })
-    .catch(next);
+  // Date.find()
+  //   .populate("user")
+  //   .populate("service")
+  //   .then((dates) => {
+  User.findById(req.params.id).then((user) => {
+    res.render("users/edit", { user });
+  });
+  // })
+  // .catch(next);
 };
-
-// module.exports.update = (req, res, next) => {
-//   const userId = req.params.id
-//   User.findById(req.params.id)
-//     .then((user) => {
-//       console.log(req.params.id)
-//       Date.find(  ).then((dates) => {
-//         res.render("users/edit", { user, dates });
-//       });
-//     })
-//     .catch(next);
-// };
 
 module.exports.doUpdate = (req, res, next) => {
   User.findByIdAndUpdate(req.params.id, req.body, { runValidators: true })
@@ -93,13 +81,14 @@ module.exports.logout = (req, res, next) => {
   res.redirect("/");
 };
 
-// if (req.session.user) {
-//   User.findById(req.params.id)
-//     .then((user) => {
-//       res.render("users/edit", { user });
-//     })
-//     .catch(next);
-
-// } else {
-//   res.redirect("/login");
-// }
+module.exports.updateDates = (req, res, next) => {
+  Date.find()
+    .populate("user")
+    .populate("service")
+    .then((dates) => {
+      User.findById(req.params.id).then((user) => {
+        res.render("users/datesuser", { user, dates });
+      });
+    })
+    .catch(next);
+};
