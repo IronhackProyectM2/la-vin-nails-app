@@ -55,7 +55,20 @@
             {{/ifTurns}}
           {{/each}}        
         {{else}}
-          <div class="card mb-1">
+          <div class="card d-flex flex-row align-items-center mb-1">
+            <div class="col-3 d-flex flex-column p-1">
+              <div class="text-center">
+                <p>TURNO:</p>
+              </div>
+              <div class="text-center">
+                <hp>{{turn}}</hp>
+              </div>                   
+            </div>
+            <div class="col-9 d-flex align-items-center justify-content-center">
+              <h5>No hay citas agendadas</h5>
+            </div>
+          </div>
+          {{!-- <div class="card mb-1">
             <div class="card-body">
               <div class="row align-items-center">
                 <div class="col">
@@ -72,7 +85,7 @@
                 <div class="linea-vertical"></div>
               </div>
             </div> 
-          </div>
+          </div> --}}
         {{/dateInTurn}}
       </div>
     {{/each}}
