@@ -209,6 +209,19 @@ h1 {
   height: 40px;
 }
 
+.btn.pl-editbtn {
+  background-color: #ed2d6a;  
+  color: white;
+  font-size: 0.8rem;
+  padding: 2px 8px;
+}
+
+.pl-li p {
+  font-size: 0.8rem;
+  padding: 0px;
+  margin: 0px;
+}
+
 /* .nav-item {
   background-color: #ed2d6a;
 } */

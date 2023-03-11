@@ -15,7 +15,25 @@
         {{#dateInTurn ../dates turn}}
           {{#each ../dates as | date |}}
             {{#ifTurns date turn}}
-              <div class="card">
+              <div class="card d-flex flex-row align-items-center mb-1">
+                <div class="col-3 d-flex flex-column p-1">
+                  <div class="text-center">
+                    <p>TURNO:</p>
+                  </div>
+                  <div class="text-center">
+                    <hp>{{date.turn}}</hp>
+                  </div>                   
+                </div>
+                <div class="col-6 pl-li ms-2">                  
+                  <p><strong>Cliente: </strong>{{date.user.name}} {{date.user.surname}}</p>
+                  <p><strong>Servicio: </strong>{{date.service.name}}</p>
+                  <p><strong>Tipo: </strong>{{date.type}}</p>
+                </div>
+                <div class="col-3 d-flex align-items-center justify-content-center">
+                  <a href="/dates/{{date.id}}/update" class="btn btn-pink pl-editbtn m-1 ">Editar</a>
+                </div>
+              </div>
+              {{!-- <div class="card">
                 <div class="card body">
                   <div class="row align-items-center">
                     <div class="col ">
@@ -33,11 +51,11 @@
                     </div>        
                   </div>
                 </div>         
-              </div>
+              </div> --}}
             {{/ifTurns}}
           {{/each}}        
         {{else}}
-          <div class="card">
+          <div class="card mb-1">
             <div class="card-body">
               <div class="row align-items-center">
                 <div class="col">

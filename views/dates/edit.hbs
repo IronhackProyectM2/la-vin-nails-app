@@ -4,11 +4,17 @@
 
 
   <div class="card mb-3">
-    <div class="card-body">
+    <div class="card-header">
+      <div class="text-center mt-2">        
+        <h4>Día {{date.date}} - turno {{date.turn}}</h4>        
+      </div>
+    </div>
 
+
+    <div class="card-body">
       <div class="mb-2">
         <h4>Cliente: {{date.user.name}} {{date.user.surname}}</h4>
-        <h5>Día {{date.date}} - turno {{date.turn}}</h5>
+        <h4 class="mb-3">Teléfono: {{date.user.phone}}</h4>
         <h5>{{date.service.name}} {{date.type}}</h5>
         <p><strong>Detalles:</strong> {{date.designDetails}} </p>
       </div>
