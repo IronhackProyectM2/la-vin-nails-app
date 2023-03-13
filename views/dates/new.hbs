@@ -20,7 +20,7 @@
           <h5 class="card-title">¿Como se encuentran tus manos?</h5>
           <p class="card-text">Sube una foto donde podamos ver el estado de tus
             uñas y mano en general.</p>
-          <div class="input-group mb-4">
+          <div class="input-group mb-1">
             <span class="input-group-text back-icon"><i
                 class="fa fa-image fa-fw"
               ></i></span>
@@ -43,7 +43,7 @@
           <p class="card-text">Precio desde €{{service.price}} a confirmar.</p>
           <label for="type" class="form-label">Selecciona un tipo de
             terminación.</label>
-          <div class="input-group mb-4">
+          <div class="input-group">
             <span class="input-group-text back-icon"><i
                 class="fa fa-tint"
                 aria-hidden="true"
@@ -115,15 +115,15 @@
           <label for="turn" class="form-label">Selecciona turno</label>
           <select id="turn" name="turn" class="form-control">
             <option value="mañana" disabled>Por la mañana</option>
-            <option value="1">10 a 11 hs.</option>
-            <option value="2">11 a 12 hs.</option>
-            <option value="3">12 a 13 hs.</option>
+            <option value="10 a 11 hs">10 a 11 hs.</option>
+            <option value="11 a 12 hs">11 a 12 hs.</option>
+            <option value="12 a 13 hs">12 a 13 hs.</option>
             <option value="mañana" disabled>Por la tarde</option>
-            <option value="4">16 a 17 hs.</option>
-            <option value="5">17 a 18 hs.</option>
-            <option value="6">18 a 19 hs.</option>
-            <option value="7">19 a 20 hs.</option>
-            <option value="8">20 a 21 hs.</option>
+            <option value="16 a 17 hs">16 a 17 hs.</option>
+            <option value="17 a 18 hs">17 a 18 hs.</option>
+            <option value="18 a 19 hs">18 a 19 hs.</option>
+            <option value="19 a 20 hs">19 a 20 hs.</option>
+            <option value="20 a 21 hs">20 a 21 hs.</option>
           </select>
           {{#if errors.turn}}<div
               class="invalid-feedback"

@@ -102,7 +102,7 @@ module.exports.update = (req, res, next) => {
 
 module.exports.listPlanning = (req, res, next) => {
   const selectDate = req.query.fecha;
-  const turns = [1, 2, 3, 4, 5, 6, 7, 8];
+  const turns = ["10 a 11 hs", "11 a 12 hs", "12 a 13 hs", "16 a 17 hs", "17 a 18 hs", "18 a 19 hs", "19 a 20 hs", "20 a 21 hs"];
 
   Date.find({ dateState: "Confirmada", date: selectDate })
     .populate("user")

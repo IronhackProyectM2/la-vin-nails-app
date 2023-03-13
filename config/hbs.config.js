@@ -61,6 +61,6 @@ hbs.registerHelper("ifDate", (date, currentUser, options) => {
   if (date.user.id === currentUser.id) {
     return options.fn();
   } else {
-    return options.inverse();s
+    return options.inverse();
   }
 });

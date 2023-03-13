@@ -32,9 +32,7 @@ const dateSchema = new mongoose.Schema(
       required: [true, "Es necesario seleccionar un día"],
     },
     turn: {
-      type: "Number",
-      min: 1,
-      max: 8,
+      type: String,
       required: [true, "Es necesario seleccionar una hora"],
     },
     price: {
