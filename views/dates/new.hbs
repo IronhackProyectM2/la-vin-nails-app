@@ -30,7 +30,7 @@
               class="form-control"
               id="handState"
             />
-            {{#if error.handState}}<div
+            {{#if errors.handState}}<div
                 class="invalid-feedback"
               >{{errors.handState}}</div>{{/if}}
           </div>
@@ -79,7 +79,7 @@
               class="form-control"
               id="desiredDesign"
             />
-            {{#if error.desiredDesign}}<div
+            {{#if errors.desiredDesign}}<div
                 class="invalid-feedback"
               >{{errors.desiredDesign}}</div>{{/if}}
           </div>
@@ -108,7 +108,7 @@
             <label for="date" class="form-label">Seleccióna para ver los turnos
               disponibles.</label>
             <input type="date" name="date" class="form-control" id="date" />
-            {{#if error.date}}<div
+            {{#if errors.date}}<div
                 class="invalid-feedback"
               >{{errors.date}}</div>{{/if}}
           </div>
@@ -125,7 +125,7 @@
             <option value="7">19 a 20 hs.</option>
             <option value="8">20 a 21 hs.</option>
           </select>
-          {{#if error.turn}}<div
+          {{#if errors.turn}}<div
               class="invalid-feedback"
             >{{errors.turn}}</div>{{/if}}
         </div>
@@ -142,18 +142,14 @@
 </div>
 
 <script>
-  const dates =
-  {{{dates}}}
+  const dates = {{{dates}}}
   const selectedDate = document.getElementById("date")
-  selectedDate.addEventListener('change', function(event){ const selected =
-  event.target.value const dayDates = dates.filter(x => x.date === selected)
-  document.querySelectorAll(`option`).forEach( x => {
-  x.removeAttribute("disabled") }) dayDates.forEach(date => {
-  document.querySelector(`option[value='${date.turn}']`).setAttribute("disabled",
-  true) }) })
+  selectedDate.addEventListener('change', function(event){ const selected = event.target.value; const dayDates = dates.filter(x => x.date === selected)
+  document.querySelectorAll(`option`).forEach( x => { x.removeAttribute("disabled") })
+  dayDates.forEach(date => { document.querySelector(`option[value='${date.turn}']`).setAttribute("disabled",  true) }) })
 </script>
 
 <script>
-  const dateInput = document.getElementById('date'); const currentDate = new
-  Date().toISOString().split('T')[0]; dateInput.min = currentDate;
+  const dateInput = document.getElementById('date'); const currentDate = new Date().toISOString().split('T')[0]; dateInput.min = currentDate;
 </script>
+

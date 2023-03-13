@@ -18,13 +18,7 @@
                         <h4>Precio: €{{date.price}}</h4>
                         <a href="/dates/{{date.id}}/deletGuest" class="btn btn-pink col-12">Cancelar cita</a>
                       </div>
-                    </div>
-                {{else}}
-                  <div class="card">
-                    <div class="card-body">
-                      <p class="card-text">No tienes citas pendientes</p>
-                    </div>          
-                  </div>
+                    </div>              
                 {{/ifDate}}
             {{/each}}
 

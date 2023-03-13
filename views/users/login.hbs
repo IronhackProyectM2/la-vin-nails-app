@@ -9,6 +9,7 @@
         <div class="input-group mb-4 mt-2">
           <span class="input-group-text back-icon"><i class="fa fa-envelope fa-fw"></i></span>
           <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+          {{#if errors.email}}<div class="invalid-feedback">{{errors.email}}</div>{{/if}}   
           <div id="emailHelp" class="form-text">Nunca compartiremos tu e-mail con nadie.</div>
            
         </div>

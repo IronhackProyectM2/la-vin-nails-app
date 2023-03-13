@@ -2,10 +2,10 @@
   <h1 class="view-title">Agenda</h1>
 
   <div class="form-container-planning">
-    <form action="/dates/list/confirmedPlanning" method="get">
-      <label for="fecha" class="form-label-planning"><stron>Selecciona:</stron></label>
-      <input type="date" id="fecha" name="fecha" class="form-input" />
-      <button type="submit" class="btn btn-pink">Buscar</button>
+    <form action="/dates/list/confirmedPlanning" method="get" class="d-flex flex-row align-items-center justify-content-end input-group-text">
+      <label for="fecha" class="form-label-planning"><strong>Selecciona un día:</strong></label>
+      <input type="date" id="fecha" name="fecha" class="form-input m-2" />
+      <button type="submit" class="btn ms-1"><i class="fa fa-search" aria-hidden="true"></i></button>
     </form>
   </div>
 
@@ -33,26 +33,7 @@
                   <a href="/dates/{{date.id}}/update" class="btn btn-pink pl-editbtn m-1 ">Editar</a>
                 </div>
               </div>
-              {{!-- <div class="card">
-                <div class="card body">
-                  <div class="row align-items-center">
-                    <div class="col ">
-                      <div class="card body ">
-                        <h6 class="card-text-plannig text-center"> | TURNO: {{turn}} |</h6>
-                      </div>   
-                    </div> 
-
-                    <div class="col d-flex justify-content-center">
-                      <div class="card-body align-items-center">
-                        <h5 class="card-title text-center">{{date.user.name}}</h5>
-                        <h6 class="card-subtitle text-center">Servicio:</h6>
-                        <p class="card-text text-center ">{{date.service.name}}</p>
-                      </div>
-                    </div>        
-                  </div>
-                </div>         
-              </div> --}}
-            {{/ifTurns}}
+              {{/ifTurns}}
           {{/each}}        
         {{else}}
           <div class="card d-flex flex-row align-items-center mb-1">
@@ -68,31 +49,13 @@
               <h5>No hay citas agendadas</h5>
             </div>
           </div>
-          {{!-- <div class="card mb-1">
-            <div class="card-body">
-              <div class="row align-items-center">
-                <div class="col">
-                  <div class="card body">
-                    <h6 class="card-text-plannig text-center"> | TURNO: {{turn}} |</h6>
-                  </div>                  
-                </div>
-                
-                <div class="col">
-                  <div class="card body align-items-center">
-                    <p class="card-text text-center">No hay citas confirmadas</p>
-                  </div>                   
-                </div>
-                <div class="linea-vertical"></div>
-              </div>
-            </div> 
-          </div> --}}
-        {{/dateInTurn}}
+          {{/dateInTurn}}
       </div>
     {{/each}}
   </div>
 
-  <div class="button-container">
-    <a href="/dates/list/confirmed" class="button-link">Volver atrás</a>
+  <div class="button-container text-center mt-3">
+    <a href="/dates/list/confirmed" class="btn btn-green col-12">Volver atrás</a>
   </div>
 </div>
 

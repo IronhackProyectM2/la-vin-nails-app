@@ -83,35 +83,8 @@
 
   <div>
 
-    <div class="card">
-      <div class="card-header text-center">
-          <a  class="btn btn-pink align-center" href="/users/{{currentUser.id}}/datesUser"><h1><strong>Mis citas</strong></h1></a>
+    
+          <a  class="btn btn-pink col-12" href="/users/{{currentUser.id}}/datesUser"><h1>Mis citas</h1></a>
         </strong></h1>
-      </div>
-      {{!-- <div class="card-body text-center">
-            {{#each dates as |date|}}
-                {{#ifDate date ../currentUser}}                  
-                    <div class="card mb-3">
-                      <div class="card-header">
-                        <h4 class="card-title">{{date.date}} | Turno: {{date.turn}}</h4>
-                        <h2>Estado: <strong>{{date.dateState}}</strong>  </h2>
-                      </div>
-                      <div class="card-body">
-                        <h4 class="card-subtitle">Servicio: {{date.service.name}}</h4>
-                        <h5 class="">{{date.type}}</h5>
-                        <h4>Precio: €{{date.price}}</h4>
-                        <a href="/dates/{{date.id}}/deletGuest" class="btn btn-pink col-12">Cancelar cita</a>
-                      </div>
-                    </div>
-                {{else}}
-                  <div class="card">
-                    <div class="card-body">
-                      <p class="card-text">No tienes citas pendientes</p>
-                    </div>          
-                  </div>
-                {{/ifDate}}
-            {{/each}}
-
-      </div> --}}
-    </div>
+      
   </div>           

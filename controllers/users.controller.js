@@ -28,11 +28,7 @@ module.exports.doCreate = (req, res, next) => {
         next(error);
       }
     });
-  // User.create(req.body)
-  //   .then(() => {
-  //     res.redirect("/login");
-  //   })
-  //   .catch();
+  
 };
 
 module.exports.login = (req, res, next) => {
